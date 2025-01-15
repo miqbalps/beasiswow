@@ -22,5 +22,12 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('admin'), // Use a secure password
             'is_admin' => 1, // Assuming you have a 'role' field
         ]);
+
+        User::create([
+            'name' => 'Tes',
+            'email' => 'tes@gmail.com',
+            'password' => Hash::make('tes'), // Use a secure password
+            'is_admin' => 0, // Assuming you have a 'role' field
+        ]);
     }
 }

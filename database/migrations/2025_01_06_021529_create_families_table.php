@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('families', function (Blueprint $table) {
-            $table->foreignId('nik')->constrained('identities')->cascadeOnDelete();
             $table->id(); // Primary key (auto-increment integer)
+            $table->string('nik'); // Nomor Induk Kependudukan
             $table->enum('type', ['father', 'mother', 'guardian']); // Jenis orang tua (ibu, ayah, wali)
             $table->string('status'); // Status (contoh: hidup/meninggal, aktif/tidak aktif, dll.)
             $table->string('full_name'); // Nama lengkap
@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('income'); // Penghasilan
             $table->string('phone'); // Nomor telepon
             $table->text('address'); // Alamat
+            $table->foreign('nik')->references('nik')->on('identities')->onDelete('cascade');
             $table->timestamps(); // Kolom created_at dan updated_at
         });
     }

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('scholarship_id')->constrained()->onDelete('cascade');
-            $table->date_create('submission_date');
+            $table->date('submission_date')->default(now());
             $table->json('submission_data')->nullable();
             $table->enum('status', [
                 'pending',

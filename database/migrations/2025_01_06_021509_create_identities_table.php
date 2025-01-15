@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('identities', function (Blueprint $table) {
             $table->string('nik')->primary();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete(); 
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('name');
             $table->string('nkk');
             $table->string('birth_place');

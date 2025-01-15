@@ -13,15 +13,16 @@ return new class extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id(); // Primary key
-            $table->foreignId('person_id')->constrained('people')->cascadeOnDelete(); 
+            $table->string('nik'); // Alamat
             $table->enum('type', ['ktp_domicilie', 'current_residence']);// Foreign key ke tabel people
             $table->string('street');
             $table->string('city');
             $table->string('state');
             $table->string('postal_code');
             $table->string('country');
+            $table->foreign('nik')->references('nik')->on('identities')->onDelete('cascade');
             $table->timestamps();
-            
+
         });
     }
 
