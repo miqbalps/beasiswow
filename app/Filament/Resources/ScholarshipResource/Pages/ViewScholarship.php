@@ -16,6 +16,8 @@ use App\Filament\Resources\ScholarshipResource;
 
 class ViewScholarship extends ViewRecord
 {
+    protected static ?string $title = 'Lihat Beasiswa';
+
     protected static string $resource = ScholarshipResource::class;
 
     protected function getHeaderActions(): array
@@ -29,19 +31,25 @@ class ViewScholarship extends ViewRecord
     {
         return $form
             ->schema([
-            Section::make('Scholarship Details')
+            Section::make('Detail Beasiswa')
                 ->schema([
                     TextInput::make('name')
+                        ->label('Nama')
                         ->required()
                         ->columnSpanFull(),
 
                     Textarea::make('description')
+                        ->label('Deskripsi')
                         ->required()
                         ->columnSpanFull()
                         ->rows(4),
 
-                    DatePicker::make('start_date')->required(),
-                    DatePicker::make('end_date')->required(),
+                    DatePicker::make('start_date')
+                        ->label('Mulai Pendaftaran')
+                        ->required(),
+                    DatePicker::make('end_date')
+                        ->label('Tenggat Pendaftaran')
+                        ->required(),
 
                     Select::make('status')
                         ->options([
@@ -51,6 +59,7 @@ class ViewScholarship extends ViewRecord
                         ->default('active'),
 
                     Repeater::make('requirements')
+                        ->label('Persyaratan Pendaftaran')
                         ->schema([
                             Select::make('input_type')
                                 ->options([
@@ -60,15 +69,18 @@ class ViewScholarship extends ViewRecord
                                     'image' => 'Image Upload',
                                     'select' => 'Dropdown'
                                 ])
+                                ->label('Tipe inputan')
                                 ->required(),
 
                             TextInput::make('label')
                                 ->required(),
 
                             TextInput::make('description')
+                                ->label('Deskripsi')
                                 ->nullable(),
 
                             TextInput::make('validation_rules')
+                                ->label('Validasi Rule')
                                 ->nullable()
                                 ->helperText('Contoh: max:2048|mimes:jpg,png')
                         ])

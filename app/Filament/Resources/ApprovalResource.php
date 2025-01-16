@@ -43,64 +43,21 @@ class ApprovalResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('scholarship.name')
-                    ->label('Beasiswa')
-                    ->searchable(),
-
-                TextColumn::make('user.name')
-                    ->label('Pendaftar')
-                    ->searchable(),
-
-                TextColumn::make('status')
-                    ->badge()
-                    ->color(fn ($state) => match ($state) {
-                        'pending' => 'warning',
-                        'review' => 'info',
-                        'accepted' => 'success',
-                        'rejected' => 'danger',
-                    }),
-
-                TextColumn::make('submission_date')
-                    ->label('Tanggal pengajuan')
-                    ->date()
-                    ->sortable()
+                //
             ])
             ->filters([
-                Tables\Filters\SelectFilter::make('status')
-                    ->options([
-                        'pending' => 'Pending',
-                        'review' => 'Under Review',
-                        'accepted' => 'Accepted',
-                        'rejected' => 'Rejected'
-                    ])
+                //
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
+                Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\DeleteBulkAction::make(),
+                ]),
             ]);
     }
-
-    // public static function table(Table $table): Table
-    // {
-    //     return $table
-    //         ->columns([
-    //             //
-    //         ])
-    //         ->filters([
-    //             //
-    //         ])
-    //         ->actions([
-    //             Tables\Actions\ViewAction::make(),
-    //             Tables\Actions\EditAction::make(),
-    //         ])
-    //         ->bulkActions([
-    //             Tables\Actions\BulkActionGroup::make([
-    //                 Tables\Actions\DeleteBulkAction::make(),
-    //             ]),
-    //         ]);
-    // }
 
     public static function getRelations(): array
     {

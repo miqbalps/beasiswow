@@ -15,11 +15,13 @@ use Filament\Forms\Components\TextInput;
 use Filament\Resources\Pages\ViewRecord;
 use Filament\Forms\Components\FileUpload;
 use App\Filament\Resources\ApprovalResource;
+use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\DateTimePicker;
 use Filament\Notifications\Notification;
 
 class ViewApproval extends ViewRecord
 {
-    protected static ?string $title = 'Persetujuan Beasiswa';
+    protected static ?string $title = 'Detail Pengajuan';
 
     protected static string $resource = ApprovalResource::class;
 
@@ -85,8 +87,16 @@ class ViewApproval extends ViewRecord
                         ->reactive()
                         ->afterStateUpdated(function (callable $set) {
                             $set('dynamic_requirements', null);
-                        })
-                ]),
+                        }),
+
+                    DatePicker::make('submission_date')
+                        ->label('Tanggal Pengajuan')
+                        ->native(false)
+                        ->displayFormat('d F Y')
+                        ->locale('id')
+                        ->disabled()
+                ])
+                ->columns(2),
 
             Section::make('Detail Pengajuan')
                 ->collapsible()
@@ -156,16 +166,6 @@ class ViewApproval extends ViewRecord
 
                     return array_merge(
                         $dynamicFields,
-                        [
-                            Select::make('status')
-                                ->options([
-                                    'pending' => 'Pending',
-                                    'review' => 'Under Review',
-                                    'accepted' => 'Accepted',
-                                    'rejected' => 'Rejected'
-                                ])
-                                ->required()
-                        ]
                     );
                 })
                 ->columns(2),

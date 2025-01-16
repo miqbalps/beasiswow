@@ -119,8 +119,7 @@
         <div class="md:w-1/2 mt-8 md:mt-0">
             <img alt="Graduation hats being thrown in the air"
                 class="rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300" height="300"
-                src="https://storage.googleapis.com/a1aa/image/oxsrZUeYqi1yKKNfskO6wz3X0EHTAeT8VFpV4A5l9YA4vLAoA.jpg"
-                width="500" />
+                src="https://placehold.co/500x400" width="500" />
         </div>
     </section>
     <!-- Statistics Section -->
@@ -390,4 +389,131 @@
         <div class="md:w-1/2 mt-8 md:mt-0">
             <img alt="Graduation cap on top of books and diploma"
                 class="rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300" height="300"
-                src="https://storage.googleapis.com/a1aa/image/9B5iVFcO4PraBBOkfYTMJ94LyXRhFbEA8
+                src="https://placehold.co/500x300" width="500" />
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-[#18181B] py-8">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center">
+                <img alt="Logo" class="h-10 w-10 hover:opacity-75 transition-opacity duration-300" height="40"
+                    src="https://placehold.co/40x40" width="40" />
+                <span class="ml-2 text-gray-700 dark:text-gray-300">DemScholars</span>
+            </div>
+            <div class="text-gray-500 dark:text-gray-300 mt-4 md:mt-0">
+                Copyright © 2025 Beasiswow | All Rights Reserved
+            </div>
+            <div class="flex space-x-4 mt-4 md:mt-0">
+                <a class="text-gray-500 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300"
+                    href="#"><i class="fab fa-facebook-f"></i></a>
+                <a class="text-gray-500 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300"
+                    href="#"><i class="fab fa-twitter"></i></a>
+                <a class="text-gray-500 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300"
+                    href="#"><i class="fab fa-instagram"></i></a>
+                <a class="text-gray-500 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300"
+                    href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a class="text-gray-500 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300"
+                    href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const faqData = [
+                {
+                    question: "Lorem ipsum dolor sit amet?",
+                    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam scelerisque posuere vivamus egestas porttitor."
+                },
+                {
+                    question: "Bagaimana Syarat dan Ketentuan Pendaftaran Beasiswa ini?",
+                    answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod architecto numquam molestiae. Voluptatem distinctio aliquid dolor quisquam suscipit, iusto hic! Alias esse nobis blanditiis aliquam ipsa corrupti molestias harum natus!"
+                },
+                {
+                    question: "Bagaimana alur pendaftaran Beasiswa ini?",
+                    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam scelerisque posuere vivamus egestas porttitor."
+                },
+                {
+                    question: "Lorem ipsum dolor sit, amet consectetur adipiscing?",
+                    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam scelerisque posuere vivamus egestas porttitor."
+                },
+                {
+                    question: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Corporis ipsum in labore praesentium?",
+                    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam scelerisque posuere vivamus egestas porttitor."
+                }
+            ];
+
+            function updateFAQ(index) {
+                const faqTitle = document.getElementById('faq-title');
+                const faqContent = document.getElementById('faq-content');
+                faqTitle.innerText = faqData[index].question;
+                faqContent.innerText = faqData[index].answer;
+
+                // Remove active class from all items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Add active class to the clicked item
+                document.querySelectorAll('.faq-item')[index].classList.add('active');
+            }
+
+            const carousel = document.querySelector('.carousel');
+            let currentIndex = 0;
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            function updateCarousel() {
+                const items = document.querySelectorAll('.carousel-item');
+                const gap = 26;
+                const containerWidth = document.querySelector('.carousel-container').offsetWidth;
+                const itemWidth = items[0].offsetWidth;
+                const offset = currentIndex * (itemWidth + gap);
+                carousel.style.transform = `translateX(-${offset}px)`;
+            }
+
+            function prevSlide() {
+                const items = document.querySelectorAll('.carousel-item');
+                if (currentIndex > 0) {
+                    currentIndex--;
+                } else {
+                    currentIndex = items.length - 3; // Sesuaikan jumlah slide yang terlihat
+                }
+                updateCarousel();
+            }
+
+            function nextSlide() {
+                const items = document.querySelectorAll('.carousel-item');
+                if (currentIndex < items.length - 3) { // Sesuaikan jumlah slide yang terlihat
+                    currentIndex++;
+                } else {
+                    currentIndex = 0;
+                }
+                updateCarousel();
+            }
+
+            // Tambahkan dukungan sentuh untuk perangkat mobile
+            carousel.addEventListener('touchstart', (e) => {
+                touchStartX = e.touches[0].clientX;
+            });
+
+            carousel.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].clientX;
+                handleSwipe();
+            });
+
+            function handleSwipe() {
+                if (touchEndX < touchStartX) {
+                    nextSlide();
+                } else if (touchEndX > touchStartX) {
+                    prevSlide();
+                }
+            }
+
+            // Responsif
+            window.addEventListener('resize', updateCarousel);
+
+            // Opsional: Otomatis geser
+            setInterval(nextSlide, 5000);
+    </script>
+</body>
+
+</html>

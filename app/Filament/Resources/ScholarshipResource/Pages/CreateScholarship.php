@@ -23,56 +23,68 @@ class CreateScholarship extends CreateRecord
     {
         return $form
             ->schema([
-            Section::make('Detail Beasiswa')
-                ->schema([
-                    TextInput::make('name')
-                        ->label('Nama')
-                        ->required()
-                        ->columnSpanFull(),
+                Section::make('Detail Beasiswa')
+                    ->schema([
+                        TextInput::make('name')
+                            ->label('Nama')
+                            ->required()
+                            ->columnSpanFull(),
 
-                    Textarea::make('description')
-                        ->label('Deskripsi')
-                        ->required()
-                        ->columnSpanFull()
-                        ->rows(4),
+                        Textarea::make('description')
+                            ->label('Deskripsi')
+                            ->required()
+                            ->columnSpanFull()
+                            ->rows(4),
 
-                    DatePicker::make('Tanggal Buka Pendaftaran')->required(),
-                    DatePicker::make('Tenggat Pendaftaran')->required(),
+                        DatePicker::make('start_date')
+                            ->label('Mulai Pendaftaran')
+                            ->required(),
+                        DatePicker::make('end_date')
+                            ->label('Tenggat Pendaftaran')
+                            ->required(),
 
-                    Select::make('status')
-                        ->options([
-                            'active' => 'Active',
-                            'inactive' => 'Inactive'
+                        Select::make('status')
+                            ->options([
+                                'active' => 'Active',
+                                'inactive' => 'Inactive'
+                            ])
+                            ->default('active'),
+                    ])
+                    ->columns(2)
+                    ->collapsible(),
+
+                Section::make('Persyaratan Pendaftaran')
+                    ->schema([
+                        Repeater::make('requirements')
+                            ->label('Inputan Persyaratan')
+                            ->schema([
+                                Select::make('input_type')
+                                    ->options([
+                                        'text' => 'Text Input',
+                                        'number' => 'Number',
+                                        'file' => 'File Upload',
+                                        'image' => 'Image Upload',
+                                        'select' => 'Dropdown'
+                                    ])
+                                    ->label('Tipe inputan')
+                                    ->required(),
+
+                                TextInput::make('label')
+                                    ->required(),
+
+                                TextInput::make('description')
+                                    ->label('Deskripsi')
+                                    ->nullable(),
+
+                                TextInput::make('validation_rules')
+                                    ->label('Validasi Rule')
+                                    ->nullable()
+                                    ->helperText('Contoh: max:2048|mimes:jpg,png')
                         ])
-                        ->default('active'),
-
-                    Repeater::make('Persyaratan Pendaftaran')
-                        ->schema([
-                            Select::make('input_type')
-                                ->options([
-                                    'text' => 'Text Input',
-                                    'number' => 'Number',
-                                    'file' => 'File Upload',
-                                    'image' => 'Image Upload',
-                                    'select' => 'Dropdown'
-                                ])
-                                ->label('Tipe inputan')
-                                ->required(),
-
-                            TextInput::make('label')
-                                ->required(),
-
-                            TextInput::make('description')
-                                ->label('Deskripsi')
-                                ->nullable(),
-
-                            TextInput::make('validation_rules')
-                                ->label('Validasi Rule')
-                                ->nullable()
-                                ->helperText('Contoh: max:2048|mimes:jpg,png')
-                        ])
-                        ->columnSpanFull()
-                ])
+                        ->columns(2)
+                    ])
+                    ->collapsible()
+                    ->collapsed(),
             ]);
     }
 }
