@@ -22,13 +22,23 @@ class Identity extends Model
         'income'
     ];
 
-    public function users()
+    public function user()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsTo(User::class);
+    }
+
+    public function families()
+    {
+        return $this->hasMany(Family::class, 'nik', 'nik');
     }
 
     public function addresses()
     {
-        return $this->hasMany(Address::class);
+        return $this->hasMany(Address::class, 'nik', 'nik');
+    }
+
+    public function last_edu()
+    {
+        return $this->hasOne(LastEdu::class, 'nik', 'nik');
     }
 }

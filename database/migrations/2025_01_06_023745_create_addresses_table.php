@@ -14,15 +14,15 @@ return new class extends Migration
         Schema::create('addresses', function (Blueprint $table) {
             $table->id(); // Primary key
             $table->string('nik'); // Alamat
-            $table->enum('type', ['ktp_domicile', 'current_domicile']);// Foreign key ke tabel people
-            $table->string('street');
-            $table->string('rt');
-            $table->string('rw');
-            $table->string('postal_code');
-            $table->string('village');
-            $table->string('district');
-            $table->string('regency');
-            $table->string('province');
+            $table->enum('type', ['ktp_domicile', 'current_domicile'])->nullable();// Foreign key ke tabel people
+            $table->string('street')->nullable();
+            $table->string('rt')->nullable();
+            $table->string('rw')->nullable();
+            $table->string('postal_code')->nullable();
+            $table->string('village')->nullable();
+            $table->string('district')->nullable();
+            $table->string('regency')->nullable();
+            $table->string('province')->nullable();
             $table->foreign('nik')->references('nik')->on('identities')->onDelete('cascade');
             $table->timestamps();
         });

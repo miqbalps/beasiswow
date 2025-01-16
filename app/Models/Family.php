@@ -21,11 +21,11 @@ class Family extends Model
 
     public function identity()
     {
-        return $this->belongsTo(Identity::class);
+        return $this->belongsTo(Identity::class, 'nik', 'nik');
     }
 
     public function families()
     {
-        return $this->hasMany(Family::class);
+        return $this->hasMany(Family::class, 'nik', 'nik');
     }
 }

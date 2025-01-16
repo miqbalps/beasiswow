@@ -14,16 +14,19 @@ return new class extends Migration
         Schema::create('identities', function (Blueprint $table) {
             $table->string('nik')->primary();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->string('nkk');
-            $table->string('birth_place');
-            $table->date('birth_date');
-            $table->string('gender');
-            $table->string('married');
-            $table->string('religion');
-            $table->string('phone');
-            $table->integer('child_number');
-            $table->integer('origin');
-            $table->integer('income');
+            $table->string('nkk')->nullable();
+            $table->string('birth_place')->nullable();
+            $table->date('birth_date')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('married')->nullable();
+            $table->string('religion')->nullable();
+            $table->string('phone')->nullable();
+            $table->integer('child_number')->nullable();
+            $table->integer('origin')->nullable();
+            $table->integer('income')->nullable();
+            $table->string('pass_photo')->nullable();
+            $table->string('ktp_photo')->nullable();
+            $table->string('kk_file')->nullable();
             $table->timestamps();
         });
     }

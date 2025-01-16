@@ -53,6 +53,6 @@ class User extends Authenticatable
 
     public function identity()
     {
-        return $this->belongsTo(Identity::class);
+        return $this->hasOne(Identity::class, 'user_id', 'id');
     }
 }

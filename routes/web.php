@@ -3,9 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\IdentityController;
+use App\Http\Controllers\LastEduController;
 
 Route::get('/', function () {
     return view('guest');
+});
+
+Route::get('/daftar-beasiswa', function () {
+    return view('list_scholarship');
 });
 
 Route::get('/welcome', function () {
@@ -29,6 +34,7 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware(['user'])->group(function () {
         Route::resource('identity', IdentityController::class)->only(['index']);
+        Route::resource('lastedu', LastEduController::class)->only(['index']);
     });
 });
 

@@ -66,21 +66,25 @@
     <nav class="bg-white dark:bg-[#18181B] shadow-md fixed w-full z-50">
         <div class="container mx-auto px-1 py-2 flex items-center">
             <div class="flex items-center">
-                <img alt="Logo" class="h-10 w-10 hover:opacity-75 transition-opacity duration-300 rounded-full" height="40"
+                <img alt="Logo" class="h-10 w-10 hover:opacity-75 transition-opacity duration-300 rounded-full"
                     src="https://storage.googleapis.com/a1aa/image/ZlhvLD4yCBqmBtbis6lShwAAaPe7KoDJu1Lwh4KLh9hf3FAUA.jpg"
-                    width="40" />
+                    width="40" height="40" />
             </div>
             <div class="hidden md:flex space-x-4 ml-8">
-                <a class="text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300" href="#">
+                <a class="text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300"
+                    href="#">
                     Beranda
                 </a>
-                <a class="text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300" href="#faq">
+                <a class="text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300"
+                    href="#faq">
                     Tentang
                 </a>
-                <a class="text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300" href="#">
+                <a class="text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300"
+                    href="#">
                     Alumni
                 </a>
-                <a class="text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300" href="#">
+                <a class="text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300"
+                    href="#">
                     Kontak
                 </a>
             </div>
@@ -105,16 +109,20 @@
             <div id="mobile-menu"
                 class="hidden fixed top-[3.5rem] left-0 right-0 bg-white dark:bg-[#18181B] shadow-lg border-t border-gray-200 dark:border-gray-700 p-4 md:hidden">
                 <div class="flex flex-col">
-                    <a class="py-3 text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300 border-b border-gray-100 dark:border-gray-800" href="#">
+                    <a class="py-3 text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300 border-b border-gray-100 dark:border-gray-800"
+                        href="#">
                         Beranda
                     </a>
-                    <a class="py-3 text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300 border-b border-gray-100 dark:border-gray-800" href="#faq">
+                    <a class="py-3 text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300 border-b border-gray-100 dark:border-gray-800"
+                        href="#faq">
                         Tentang
                     </a>
-                    <a class="py-3 text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300 border-b border-gray-100 dark:border-gray-800" href="#">
+                    <a class="py-3 text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300 border-b border-gray-100 dark:border-gray-800"
+                        href="#">
                         Alumni
                     </a>
-                    <a class="py-3 text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300" href="#">
+                    <a class="py-3 text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300"
+                        href="#">
                         Kontak
                     </a>
                 </div>
@@ -414,31 +422,37 @@
     <!-- Footer -->
     <footer class="bg-white dark:bg-[#18181B] py-8 border-t border-gray-200">
         <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Logo Section -->
-            <div class="flex flex-col items-center md:items-start">
-            <img src="https://placehold.co/80x40" alt="Logo" class="h-10 w-20 hover:opacity-75 transition-opacity duration-300 mb-2">
-            <span class="text-gray-700 dark:text-gray-300 text-sm font-semibold">Beasiswow</span>
-            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Logo Section -->
+                <div class="flex flex-col items-center md:items-start">
+                    <img src="https://placehold.co/80x40" alt="Logo"
+                        class="h-10 w-20 hover:opacity-75 transition-opacity duration-300 mb-2">
+                    <span class="text-gray-700 dark:text-gray-300 text-sm font-semibold">Beasiswow</span>
+                </div>
 
-            <!-- Social Media Section -->
-            <div class="text-center md:text-left">
-            <h3 class="text-gray-700 dark:text-gray-300 font-semibold mb-2">Follow Us</h3>
-            <div class="flex justify-center md:justify-start space-x-4">
-                <a class="text-gray-500 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300" href="#"><i class="fab fa-facebook-f"></i></a>
-                <a class="text-gray-500 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300" href="#"><i class="fab fa-twitter"></i></a>
-                <a class="text-gray-500 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300" href="#"><i class="fab fa-instagram"></i></a>
-                <a class="text-gray-500 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300" href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a class="text-gray-500 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300" href="#"><i class="fab fa-youtube"></i></a>
-            </div>
-            </div>
+                <!-- Social Media Section -->
+                <div class="text-center md:text-left">
+                    <h3 class="text-gray-700 dark:text-gray-300 font-semibold mb-2">Follow Us</h3>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a class="text-gray-500 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300"
+                            href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="text-gray-500 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300"
+                            href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="text-gray-500 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300"
+                            href="#"><i class="fab fa-instagram"></i></a>
+                        <a class="text-gray-500 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300"
+                            href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="text-gray-500 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300"
+                            href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
 
-            <!-- Copyright Section -->
-            <div class="text-center md:text-right">
-            <h3 class="text-gray-700 dark:text-gray-300 font-semibold mb-2">Copyright</h3>
-            <p class="text-gray-500 dark:text-gray-300 text-sm">© 2025 Beasiswow | All Rights Reserved</p>
+                <!-- Copyright Section -->
+                <div class="text-center md:text-right">
+                    <h3 class="text-gray-700 dark:text-gray-300 font-semibold mb-2">Copyright</h3>
+                    <p class="text-gray-500 dark:text-gray-300 text-sm">© 2025 Beasiswow | All Rights Reserved</p>
+                </div>
             </div>
-        </div>
         </div>
     </footer>
     <script>
