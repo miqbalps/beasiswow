@@ -65,10 +65,13 @@
     <!-- Navbar -->
     <nav class="bg-white dark:bg-[#18181B] shadow-md fixed w-full z-50">
         <div class="container mx-auto px-1 py-2 flex items-center">
-            <div class="flex items-center">
-                <img alt="Logo" class="h-10 w-10 hover:opacity-75 transition-opacity duration-300 rounded-full"
-                    src="https://storage.googleapis.com/a1aa/image/ZlhvLD4yCBqmBtbis6lShwAAaPe7KoDJu1Lwh4KLh9hf3FAUA.jpg"
-                    width="40" height="40" />
+            <div class="flex items-center gap-3">
+                <img alt="Logo" class="h-10 w-10 hover:opacity-75 transition-opacity duration-300 rounded" height="40"
+                    src="{{URL::asset('img/Logo1.png')}}"
+                    width="40" />
+                    <a class="text-amber-600 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300 text-bold" href="#">
+                        Beasiswow
+                    </a>
             </div>
             <div class="hidden md:flex space-x-4 ml-8">
                 <a class="text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300"
@@ -136,11 +139,13 @@
                 Beasiswow
             </h1>
             <p class="mt-4 text-gray-700 dark:text-gray-300">
-                Program Beasiswow adalah inisiatif beasiswa yang bertujuan mendukung para siswa dan mahasiswa berbakat
-                dari seluruh Indonesia untuk mencapai potensi penuh mereka dalam bidang pendidikan. Beasiswa ini
-                dirancang untuk membantu meringankan beban biaya pendidikan bagi mereka yang memiliki prestasi akademik
-                atau berkomitmen pada kegiatan sosial dan pengembangan diri, tetapi terkendala oleh keterbatasan
-                finansial.
+                Beasiswow adalah platform online yang dirancang untuk mempermudah pengelolaan dan akses
+                beasiswa di satu institusi pendidikan. Website ini membantu mahasiswa di kampus tersebut untuk
+                mendaftar dan mengakses informasi beasiswa yang telah disediakan oleh institusi secara transparan
+                dan efisien. Dengan Beasiswow, proses pengajuan beasiswa menjadi lebih praktis dan terorganisir,
+                mendukung mahasiswa yang berprestasi atau membutuhkan bantuan finansial untuk meraih pendidikan
+                terbaik.
+            </p>
             </p>
         </div>
         <div class="md:w-1/2 mt-8 md:mt-0">
@@ -187,10 +192,9 @@
             <div class="carousel-container">
                 <div class="carousel gap-6">
                     <div
-                        class="carousel-item bg-white dark:bg-[#18181B] p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                        class="carousel-item bg-white dark:bg-[#18181B] p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between">
                         <p class="text-gray-700 dark:text-gray-300">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam scelerisque posuere vivamus
-                            egestas porttitor. Hendrerit vitae at nulla varius proin ipsum. Purus augue in morbi.
+                            "Beasiswow sangat membantu saya dalam proses pengajuan beasiswa. Semua informasi mudah diakses dan sangat transparan, sehingga saya bisa fokus pada studi saya."
                         </p>
                         <div class="mt-4 flex items-center">
                             <i class="fas fa-user-circle text-amber-500 text-2xl">
@@ -200,16 +204,15 @@
                                     Bela
                                 </p>
                                 <p class="text-gray-500 dark:text-gray-400">
-                                    Amet phasellus interdum.
+                                    Mahasiswa Penerima Beasiswa Akademik.
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div
-                        class="carousel-item bg-white dark:bg-[#18181B] p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                        class="carousel-item bg-white dark:bg-[#18181B] p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between">
                         <p class="text-gray-700 dark:text-gray-300">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam scelerisque posuere vivamus
-                            egestas porttitor. Hendrerit vitae at nulla varius proin ipsum. Purus augue in morbi.
+                            "Proses pengajuan beasiswa di kampus jadi lebih mudah dan tidak memakan waktu lama. Saya sangat merekomendasikan Beasiswow untuk mahasiswa lain."
                         </p>
                         <div class="mt-4 flex items-center">
                             <i class="fas fa-user-circle text-amber-500 text-2xl">
@@ -219,16 +222,15 @@
                                     Nizar
                                 </p>
                                 <p class="text-gray-500 dark:text-gray-400">
-                                    Amet phasellus interdum.
+                                    Mahasiswa Penerima Beasiswa Unggulan.
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div
-                        class="carousel-item bg-white dark:bg-[#18181B] p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                        class="carousel-item bg-white dark:bg-[#18181B] p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between">
                         <p class="text-gray-700 dark:text-gray-300">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam scelerisque posuere vivamus
-                            egestas porttitor. Hendrerit vitae at nulla varius proin ipsum. Purus augue in morbi.
+                            "Dengan Beasiswow, saya merasa lebih percaya diri karena prosesnya jelas dan adil. Sistem ini sangat membantu saya untuk mendapatkan beasiswa yang sesuai."
                         </p>
                         <div class="mt-4 flex items-center">
                             <i class="fas fa-user-circle text-amber-500 text-2xl">
@@ -238,16 +240,15 @@
                                     Rainova
                                 </p>
                                 <p class="text-gray-500 dark:text-gray-400">
-                                    Amet phasellus interdum.
+                                    Mahasiswa Penerima Beasiswa Kebutuhan Khusus.
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div
-                        class="carousel-item bg-white dark:bg-[#18181B] p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                        class="carousel-item bg-white dark:bg-[#18181B] p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between">
                         <p class="text-gray-700 dark:text-gray-300">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam scelerisque posuere vivamus
-                            egestas porttitor. Hendrerit vitae at nulla varius proin ipsum. Purus augue in morbi.
+                            "Website ini sangat user-friendly. Saya bisa menemukan informasi beasiswa dengan cepat dan mengajukannya tanpa ribet."
                         </p>
                         <div class="mt-4 flex items-center">
                             <i class="fas fa-user-circle text-amber-500 text-2xl">
@@ -257,16 +258,15 @@
                                     Bela
                                 </p>
                                 <p class="text-gray-500 dark:text-gray-400">
-                                    Amet phasellus interdum.
+                                    Mahasiswa Penerima Beasiswa Akademik.
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div
-                        class="carousel-item bg-white dark:bg-[#18181B] p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                        class="carousel-item bg-white dark:bg-[#18181B] p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between">
                         <p class="text-gray-700 dark:text-gray-300">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam scelerisque posuere vivamus
-                            egestas porttitor. Hendrerit vitae at nulla varius proin ipsum. Purus augue in morbi.
+                            "Tidak ada lagi kebingungan dalam mencari informasi beasiswa. Semua sudah tersedia di satu tempat."
                         </p>
                         <div class="mt-4 flex items-center">
                             <i class="fas fa-user-circle text-amber-500 text-2xl">
@@ -276,16 +276,15 @@
                                     Nizar
                                 </p>
                                 <p class="text-gray-500 dark:text-gray-400">
-                                    Amet phasellus interdum.
+                                    Mahasiswa Penerima Beasiswa Unggulan.
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div
-                        class="carousel-item bg-white dark:bg-[#18181B] p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                        class="carousel-item bg-white dark:bg-[#18181B] p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between">
                         <p class="text-gray-700 dark:text-gray-300">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam scelerisque posuere vivamus
-                            egestas porttitor. Hendrerit vitae at nulla varius proin ipsum. Purus augue in morbi.
+                            "Proses pendaftaran beasiswa yang mudah dan sistem yang transparan membuat saya sangat terbantu. Terima kasih, Beasiswow!"
                         </p>
                         <div class="mt-4 flex items-center">
                             <i class="fas fa-user-circle text-amber-500 text-2xl">
@@ -295,7 +294,7 @@
                                     Rainova
                                 </p>
                                 <p class="text-gray-500 dark:text-gray-400">
-                                    Amet phasellus interdum.
+                                    Mahasiswa Penerima Beasiswa Kebutuhan Khusus.
                                 </p>
                             </div>
                         </div>
@@ -314,6 +313,73 @@
                 <i class="fas fa-chevron-right">
                 </i>
             </button>
+        </div>
+    </section>
+    <!-- Informasi Beasiswa Section -->
+    <section class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-center text-amber-500 mb-8">
+            Informasi Beasiswa Terbaru
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Artikel 1 -->
+            <a href="#" class="block">
+                <div class="bg-white dark:bg-[#18181B] rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <img src="https://placehold.co/350x200" alt="Artikel Beasiswa 1" class="rounded-t-lg">
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-700 dark:text-gray-300">
+                            Beasiswa Kuliah Gratis 2025
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-400 mt-2 text-sm">
+                            <span class="font-semibold text-gray-700 dark:text-gray-300">Periode:</span> Januari 2025 - Desember 2025
+                        </p>
+                        <p class="text-gray-500 dark:text-gray-400 mt-2 text-sm">
+                            Program beasiswa ini mencakup biaya kuliah penuh hingga lulus bagi mahasiswa berprestasi.
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <!-- Artikel 2 -->
+            <a href="#" class="block">
+                <div class="bg-white dark:bg-[#18181B] rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <img src="https://placehold.co/350x200" alt="Artikel Beasiswa 2" class="rounded-t-lg">
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-700 dark:text-gray-300">
+                            Beasiswa Penelitian 2025
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-400 mt-2 text-sm">
+                            <span class="font-semibold text-gray-700 dark:text-gray-300">Periode:</span> Maret 2025 - Agustus 2025
+                        </p>
+                        <p class="text-gray-500 dark:text-gray-400 mt-2 text-sm">
+                            Beasiswa ini mendukung mahasiswa aktif dan berprestasi dengan menunjang biaya kuliah penuh.
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <!-- Artikel 3 -->
+            <a href="#" class="block">
+                <div class="bg-white dark:bg-[#18181B] rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <img src="https://placehold.co/350x200" alt="Artikel Beasiswa 3" class="rounded-t-lg">
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-700 dark:text-gray-300">
+                            Beasiswa Siswa Berprestasi
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-400 mt-2 text-sm">
+                            <span class="font-semibold text-gray-700 dark:text-gray-300">Periode:</span> April 2025 - November 2025
+                        </p>
+                        <p class="text-gray-500 dark:text-gray-400 mt-2 text-sm">
+                            Program ini ditujukan untuk mahasiswa berprestasi,beasiswa ini juga mencakup tunjangan bulanan.
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- Tombol Show All -->
+        <div class="mt-8 text-center">
+            <a href="#"
+            class="px-6 py-2 bg-amber-500 text-white font-semibold rounded-lg shadow-md hover:bg-amber-600 transition-colors duration-300
+                hover:bg-white hover:text-amber-500 hover:border-amber-500 border-2 border-transparent">
+                Show All
+            </a>
         </div>
     </section>
     <!-- FAQ Section -->
@@ -425,32 +491,26 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Logo Section -->
                 <div class="flex flex-col items-center md:items-start">
-                    <img src="https://placehold.co/80x40" alt="Logo"
-                        class="h-10 w-20 hover:opacity-75 transition-opacity duration-300 mb-2">
-                    <span class="text-gray-700 dark:text-gray-300 text-sm font-semibold">Beasiswow</span>
+                <img src="https://placehold.co/80x40" alt="Logo" class="h-10 w-20 hover:opacity-75 transition-opacity duration-300 mb-2">
+                <span class="text-gray-700 dark:text-gray-300 text-sm font-semibold">Beasiswow</span>
                 </div>
 
                 <!-- Social Media Section -->
                 <div class="text-center md:text-left">
-                    <h3 class="text-gray-700 dark:text-gray-300 font-semibold mb-2">Follow Us</h3>
-                    <div class="flex justify-center md:justify-start space-x-4">
-                        <a class="text-gray-500 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300"
-                            href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a class="text-gray-500 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300"
-                            href="#"><i class="fab fa-twitter"></i></a>
-                        <a class="text-gray-500 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300"
-                            href="#"><i class="fab fa-instagram"></i></a>
-                        <a class="text-gray-500 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300"
-                            href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a class="text-gray-500 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300"
-                            href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
+                <h3 class="text-gray-700 dark:text-gray-300 font-semibold mb-2">Follow Us</h3>
+                <div class="flex justify-center md:justify-start space-x-4">
+                    <a class="text-gray-500 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="text-gray-500 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="text-gray-500 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300" href="#"><i class="fab fa-instagram"></i></a>
+                    <a class="text-gray-500 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="text-gray-500 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300" href="#"><i class="fab fa-youtube"></i></a>
+                </div>
                 </div>
 
                 <!-- Copyright Section -->
                 <div class="text-center md:text-right">
-                    <h3 class="text-gray-700 dark:text-gray-300 font-semibold mb-2">Copyright</h3>
-                    <p class="text-gray-500 dark:text-gray-300 text-sm">© 2025 Beasiswow | All Rights Reserved</p>
+                <h3 class="text-gray-700 dark:text-gray-300 font-semibold mb-2">Copyright</h3>
+                <p class="text-gray-500 dark:text-gray-300 text-sm">© 2025 Beasiswow | All Rights Reserved</p>
                 </div>
             </div>
         </div>
