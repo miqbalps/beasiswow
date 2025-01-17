@@ -2,12 +2,12 @@
     <x-slot name="header">
         <div class="flex items-center justify-between">
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                {{ __('Prestasi') }}
+                {{ __('Beasiswa') }}
             </h2>
 
             <a class="px-4 py-2 text-white bg-amber-600 rounded-md hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-400"
                 href="{{ route('applications.create') }}">
-                Tambah Beasiswa
+                Daftar Beasiswa
             </a>
         </div>
     </x-slot>
@@ -20,7 +20,7 @@
                     class="flex flex-col md:flex-row gap-4">
                     <!-- Search Input -->
                     <div class="flex-1">
-                        <label for="search" class="sr-only">Search</label>
+                        <label for="search" class="sr-only">Cari</label>
                         <div class="relative">
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                 <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg"
@@ -31,21 +31,21 @@
                                 </svg>
                             </div>
                             <input type="text" name="search" id="search" value="{{ request('search') }}"
-                                class="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-700 rounded-md leading-5 bg-white dark:bg-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
-                                placeholder="Search applications...">
+                                class="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-700 rounded-md leading-5 bg-white dark:bg-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-amber-500 focus:border-amber-500 sm:text-sm"
+                                placeholder="Cari beasiswa...">
                         </div>
                     </div>
 
                     <!-- Status Filter -->
                     <div class="w-full md:w-48">
                         <select name="status" id="status" onchange="document.getElementById('searchForm').submit()"
-                            class="block w-full pl-3 pr-10 py-2 text-base border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm rounded-md bg-white dark:bg-gray-900">
-                            <option value="">All Status</option>
-                            <option value="pending" {{ request('status')==='pending' ? 'selected' : '' }}>Pending
+                            class="block w-full pl-3 pr-10 py-2 text-base border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm rounded-md bg-white dark:bg-gray-900">
+                            <option value="">Semua Status</option>
+                            <option value="pending" {{ request('status')==='pending' ? 'selected' : '' }}>Menunggu
                             </option>
-                            <option value="approved" {{ request('status')==='approved' ? 'selected' : '' }}>Approved
+                            <option value="approved" {{ request('status')==='approved' ? 'selected' : '' }}>Disetujui
                             </option>
-                            <option value="rejected" {{ request('status')==='rejected' ? 'selected' : '' }}>Rejected
+                            <option value="rejected" {{ request('status')==='rejected' ? 'selected' : '' }}>Ditolak
                             </option>
                         </select>
                     </div>
@@ -60,15 +60,15 @@
                             <tr>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                    Applicant
+                                    No
                                 </th>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                    Scholarship
+                                    Beasiswa
                                 </th>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                    Submission Date
+                                    Tanggal Pengajuan
                                 </th>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
@@ -76,18 +76,16 @@
                                 </th>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                    Actions
+                                    Aksi
                                 </th>
                             </tr>
                         </thead>
                         <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-                            @forelse($applications as $application)
+                            @forelse($applications as $index => $application)
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="text-sm font-medium text-gray-900 dark:text-gray-100">
-                                            {{ $application->user->name }}
-                                        </div>
+                                    <div class="text-sm font-medium text-gray-900 dark:text-gray-100">
+                                        {{ $index + 1 }}
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
@@ -97,7 +95,8 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="text-sm text-gray-900 dark:text-gray-100">
-                                        {{ \Carbon\Carbon::parse($application->submission_date)->format('d M Y') }}
+                                        {{ \Carbon\Carbon::parse($application->submission_date)->locale('id')->format('d
+                                        M Y') }}
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
@@ -109,20 +108,26 @@
                                             @else
                                                 bg-yellow-100 text-yellow-800
                                             @endif">
-                                        {{ ucfirst($application->status) }}
+                                        @if($application->status === 'approved')
+                                        Disetujui
+                                        @elseif($application->status === 'rejected')
+                                        Ditolak
+                                        @else
+                                        Menunggu
+                                        @endif
                                     </span>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
                                     <a href="{{ route('applications.show', $application->id) }}"
-                                        class="text-primary-600 hover:text-primary-900 dark:hover:text-primary-400">
-                                        View Details
+                                        class="text-amber-600 hover:text-amber-900 dark:hover:text-amber-400">
+                                        Lihat Detail
                                     </a>
                                 </td>
                             </tr>
                             @empty
                             <tr>
                                 <td colspan="5" class="px-6 py-4 text-center text-gray-500 dark:text-gray-400">
-                                    No applications found.
+                                    Tidak ada data pengajuan beasiswa.
                                 </td>
                             </tr>
                             @endforelse

@@ -1,15 +1,17 @@
 <?php
 
 use App\Models\Address;
+use App\Models\LastEdu;
+use App\Models\Scholarship;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FamilyController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\LastEduController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ApprovalController;
 use App\Http\Controllers\IdentityController;
 use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\ApplicationController;
-use App\Models\LastEdu;
 
 Route::get('/', function () {
     return view('guest');
@@ -26,6 +28,10 @@ Route::get('/welcome', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/scholarships/{scholarship}', function (Scholarship $scholarship) {
+    return response()->json($scholarship);
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -52,8 +58,12 @@ Route::middleware('auth')->group(function () {
         Route::patch('/lastedu', [LastEduController::class, 'update'])->name('lastedu.update');
         Route::patch('/transcriptfile', [LastEduController::class, 'updateTranscript'])->name('lastedu.updateTranscript');
 
-        Route::resource('achievements', AchievementController::class)->only(['index']);
+        Route::resource('achievements', AchievementController::class)->except(['edit', 'update']);
         Route::resource('applications', ApplicationController::class)->only(['index', 'create', 'store', 'show']);
+    });
+
+    Route::middleware(['admin'])->group(function () {
+        Route::resource('approvals', ApprovalController::class)->only(['index', 'show', 'update']);
     });
 });
 
