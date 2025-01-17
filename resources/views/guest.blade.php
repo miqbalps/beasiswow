@@ -1,4 +1,4 @@
-<html class="scroll-smooth dark" lang="en">
+<html class="scroll-smooth light" lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -79,6 +79,10 @@
                     Beranda
                 </a>
                 <a class="text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300"
+                    href="/daftar-beasiswa">
+                    Beasiswa
+                </a>
+                <a class="text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300"
                     href="#faq">
                     Tentang
                 </a>
@@ -92,12 +96,10 @@
                 </a>
             </div>
             <div class="flex items-center space-x-2 ml-auto">
-                <button
-                    class="bg-amber-500 text-white px-4 py-2 rounded-full hover:bg-amber-600 transition-colors duration-300"
-                    id="theme-toggle">
-                    <i class="fas fa-moon">
-                    </i>
-                </button>
+                {{-- <button
+                    class="bg-amber-500 text-white px-4 py-2 rounded-full hover:bg-amber-600 transition-colors duration-300" id="theme-toggle">
+                    <i id="theme-icon" class="fa fa-moon"></i>
+                </button> --}}
                 <a class="bg-amber-500 text-white px-4 py-2 rounded-full hover:bg-amber-600 transition-colors duration-300"
                     href="{{ route('login') }}">
                     Masuk/Daftar
@@ -115,6 +117,10 @@
                     <a class="py-3 text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300 border-b border-gray-100 dark:border-gray-800"
                         href="#">
                         Beranda
+                    </a>
+                    <a class="py-3 text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300 border-b border-gray-100 dark:border-gray-800"
+                        href="/daftar-beasiswa">
+                        Beasiswa
                     </a>
                     <a class="py-3 text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300 border-b border-gray-100 dark:border-gray-800"
                         href="#faq">
@@ -385,7 +391,7 @@
         </div>
         <!-- Tombol Show All -->
         <div class="mt-8 text-center">
-            <a href="#"
+            <a href="/daftar-beasiswa"
             class="px-6 py-2 bg-amber-500 text-white font-semibold rounded-lg shadow-md hover:bg-amber-600 transition-colors duration-300
                 hover:bg-white hover:text-amber-500 hover:border-amber-500 border-2 border-transparent">
                 Show All
@@ -655,6 +661,34 @@
             window.addEventListener('resize', () => {
                 if (window.innerWidth >= 768) {
                     document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const themeToggle = document.getElementById('theme-toggle');
+                const themeIcon = document.getElementById('theme-icon');
+                const currentTheme = localStorage.getItem('theme') || 'light';
+
+                const applyTheme = (theme) => {
+                    if (theme === 'dark') {
+                        document.documentElement.classList.add('dark');
+                        themeIcon.classList.replace('fa-moon', 'fa-sun');
+                    } else {
+                        document.documentElement.classList.remove('dark');
+                        themeIcon.classList.replace('fa-sun', 'fa-moon');
+                    }
+                    localStorage.setItem('theme', theme);
+                };
+
+                applyTheme(currentTheme);
+
+                if (themeToggle) {
+                    themeToggle.addEventListener('click', function () {
+                        const newTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+                        applyTheme(newTheme);
+                    });
+                } else {
+                    console.error("Element with id 'theme-toggle' not found.");
                 }
             });
     </script>
