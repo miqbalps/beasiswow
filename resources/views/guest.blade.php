@@ -91,7 +91,7 @@
                     Alumni
                 </a>
                 <a class="text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300"
-                    href="#">
+                    href="#kontak">
                     Kontak
                 </a>
             </div>
@@ -131,7 +131,7 @@
                         Alumni
                     </a>
                     <a class="py-3 text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300"
-                        href="#">
+                        href="#kontak">
                         Kontak
                     </a>
                 </div>
@@ -471,7 +471,7 @@
         </div>
     </section>
     <!-- Call to Action Section -->
-    <section class="container mx-auto px-4 py-16 flex flex-col md:flex-row items-center">
+    <section class="container mx-auto px-4 py-16 flex flex-col md:flex-row items-center" id="kontak">
         <div class="md:w-1/2">
             <h2 class="text-3xl font-bold text-amber-500">
                 Siap menjadi bagian dari kami?
@@ -487,7 +487,7 @@
                 </a>
                 <a class="bg-white dark:bg-[#18181B] text-amber-500 border-amber-500 border-2 px-4 py-2 rounded-full transition-colors duration-300
                     hover:bg-amber-500 hover:text-white"
-                    href="#">
+                    href="#kontak">
                     Kontak
                 </a>
             </div>
