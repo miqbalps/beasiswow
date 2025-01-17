@@ -18,8 +18,9 @@
                     </svg>
                 </button>
                 <div x-show="open" class="mt-4">
-                    <form method="POST" action="" class="space-y-6">
+                    <form method="POST" action="{{ route('identity.update') }}" class="space-y-6">
                         @csrf
+                        @method('PATCH')
 
                         <div class="grid grid-cols-2 gap-4">
                             <!-- NIK -->
@@ -29,7 +30,10 @@
                                     Kependudukan</label>
                                 <input type="text" name="nik" id="nik"
                                     class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                    value="{{ old('nik', $identity->nik) }}" required>
+                                @error('nik')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Name -->
@@ -39,7 +43,10 @@
                                     Lengkap</label>
                                 <input type="text" name="name" id="name"
                                     class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                    value="{{ old('name', $identity->user->name) }}" required>
+                                @error('name')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- NKK -->
@@ -49,7 +56,10 @@
                                     Keluarga</label>
                                 <input type="text" name="nkk" id="nkk"
                                     class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                    value="{{ old('nkk', $identity->nkk) }}" required>
+                                @error('nkk')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Birth Place -->
@@ -59,7 +69,10 @@
                                     Lahir</label>
                                 <input type="text" name="birth_place" id="birth_place"
                                     class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                    value="{{ old('birth_place', $identity->birth_place) }}" required>
+                                @error('birth_place')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Birth Date -->
@@ -69,7 +82,10 @@
                                     Lahir</label>
                                 <input type="date" name="birth_date" id="birth_date"
                                     class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                    value="{{ old('birth_date', $identity->birth_date) }}" required>
+                                @error('birth_date')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Gender -->
@@ -79,9 +95,14 @@
                                     Kelamin</label>
                                 <select name="gender" id="gender"
                                     class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600">
-                                    <option value="male">Laki-laki</option>
-                                    <option value="female">Perempuan</option>
+                                    <option value="male" {{ old('gender', $identity->gender) == 'male' ? 'selected' : ''
+                                        }}>Laki-laki</option>
+                                    <option value="female" {{ old('gender', $identity->gender) == 'female' ? 'selected'
+                                        : '' }}>Perempuan</option>
                                 </select>
+                                @error('gender')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Married -->
@@ -91,9 +112,14 @@
                                     Menikah</label>
                                 <select name="married" id="married"
                                     class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600">
-                                    <option value="yes">Menikah</option>
-                                    <option value="no">Belum Menikah</option>
+                                    <option value="yes" {{ old('married', $identity->married) == 'yes' ? 'selected' : ''
+                                        }}>Menikah</option>
+                                    <option value="no" {{ old('married', $identity->married) == 'no' ? 'selected' : ''
+                                        }}>Belum Menikah</option>
                                 </select>
+                                @error('married')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Religion -->
@@ -102,7 +128,10 @@
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Agama</label>
                                 <input type="text" name="religion" id="religion"
                                     class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                    value="{{ old('religion', $identity->religion) }}" required>
+                                @error('religion')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Phone -->
@@ -112,7 +141,10 @@
                                     Handphone</label>
                                 <input type="text" name="phone" id="phone"
                                     class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                    value="{{ old('phone', $identity->phone) }}" required>
+                                @error('phone')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Child Number -->
@@ -121,7 +153,10 @@
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Anak Ke</label>
                                 <input type="number" name="child_number" id="child_number"
                                     class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                    value="{{ old('child_number', $identity->child_number) }}" required>
+                                @error('child_number')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Origin -->
@@ -130,7 +165,10 @@
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Dari</label>
                                 <input type="text" name="origin" id="origin"
                                     class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                    value="{{ old('origin', $identity->origin) }}" required>
+                                @error('origin')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Income -->
@@ -139,7 +177,10 @@
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Penghasilan</label>
                                 <input type="number" name="income" id="income"
                                     class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                    value="{{ old('income', $identity->income) }}" required>
+                                @error('income')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
 
@@ -164,19 +205,20 @@
                     </svg>
                 </button>
                 <div x-show="open" class="mt-4">
-                    <form method="POST" action="" class="space-y-6">
+                    <form method="POST" action="{{ route('identity.updateKtpDomicile') }}" class="space-y-6">
                         @csrf
+                        @method('patch')
 
                         <!-- NIK -->
                         <div>
                             <input type="hidden" name="nik" id="nik"
                                 class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                required>
+                                required value="{{ $ktp_domicile->nik }}">
                         </div>
 
                         <!-- Type -->
                         <div>
-                            <input type="hidden" name="type" id="type" value="ktp_domicile"
+                            <input type="hidden" name="type" id="type" value="{{ $ktp_domicile->type }}"
                                 class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
                                 required>
                         </div>
@@ -187,8 +229,11 @@
                                 <label for="street_ktp"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Street</label>
                                 <input type="text" name="street" id="street_ktp"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('street') border-red-500 @enderror"
+                                    value="{{ old('street', $ktp_domicile->street) }}" required>
+                                @error('street')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- RT -->
@@ -196,8 +241,11 @@
                                 <label for="rt_ktp"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">RT</label>
                                 <input type="number" min="1" name="rt" id="rt_ktp"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('rt') border-red-500 @enderror"
+                                    value="{{ old('rt', $ktp_domicile->rt) }}" required>
+                                @error('rt')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- RW -->
@@ -205,8 +253,11 @@
                                 <label for="rw_ktp"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">RW</label>
                                 <input type="number" min="1" name="rw" id="rw_ktp"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('rw') border-red-500 @enderror"
+                                    value="{{ old('rw', $ktp_domicile->rw) }}" required>
+                                @error('rw')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Postal Code -->
@@ -214,8 +265,11 @@
                                 <label for="postal_code_ktp"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Kode Pos</label>
                                 <input type="text" name="postal_code" id="postal_code_ktp"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('postal_code') border-red-500 @enderror"
+                                    value="{{ old('postal_code', $ktp_domicile->postal_code) }}" required>
+                                @error('postal_code')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Village -->
@@ -223,10 +277,24 @@
                                 <label for="village_ktp"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Desa/Kelurahan</label>
                                 <select name="village" id="village_ktp"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('village') border-red-500 @enderror"
                                     required>
+                                    @php
+                                    $selectedVillage = old('village', $ktp_domicile->village);
+                                    @endphp
                                     <option value="">Pilih Desa/Kelurahan</option>
+                                    @if($selectedVillage)
+                                    @php
+                                    $response =
+                                    Http::get("https://www.emsifa.com/api-wilayah-indonesia/api/village/{$selectedVillage}.json");
+                                    $village = $response->json();
+                                    @endphp
+                                    <option value="{{ $selectedVillage }}" selected>{{ $village['name'] }}</option>
+                                    @endif
                                 </select>
+                                @error('village')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- District -->
@@ -234,10 +302,24 @@
                                 <label for="district_ktp"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Kecamatan</label>
                                 <select name="district" id="district_ktp"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('district') border-red-500 @enderror"
                                     required>
+                                    @php
+                                    $selectedDistrict = old('district', $ktp_domicile->district);
+                                    @endphp
                                     <option value="">Pilih Kecamatan</option>
+                                    @if($selectedDistrict)
+                                    @php
+                                    $response =
+                                    Http::get("https://www.emsifa.com/api-wilayah-indonesia/api/district/{$selectedDistrict}.json");
+                                    $district = $response->json();
+                                    @endphp
+                                    <option value="{{ $selectedDistrict }}" selected>{{ $district['name'] }}</option>
+                                    @endif
                                 </select>
+                                @error('district')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Regency -->
@@ -245,10 +327,24 @@
                                 <label for="regency_ktp"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Kabupaten/Kota</label>
                                 <select name="regency" id="regency_ktp"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('regency') border-red-500 @enderror"
                                     required>
+                                    @php
+                                    $selectedRegency = old('regency', $ktp_domicile->regency);
+                                    @endphp
                                     <option value="">Pilih Kab/Kota</option>
+                                    @if($selectedRegency)
+                                    @php
+                                    $response =
+                                    Http::get("https://www.emsifa.com/api-wilayah-indonesia/api/regency/{$selectedRegency}.json");
+                                    $regency = $response->json();
+                                    @endphp
+                                    <option value="{{ $selectedRegency }}" selected>{{ $regency['name'] }}</option>
+                                    @endif
                                 </select>
+                                @error('regency')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Province -->
@@ -256,10 +352,24 @@
                                 <label for="province_ktp"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Provinsi</label>
                                 <select name="province" id="province_ktp"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('province') border-red-500 @enderror"
                                     required>
+                                    @php
+                                    $selectedProvince = old('province', $ktp_domicile->province);
+                                    @endphp
                                     <option value="">Pilih Provinsi</option>
+                                    @if($selectedProvince)
+                                    @php
+                                    $response =
+                                    Http::get("https://www.emsifa.com/api-wilayah-indonesia/api/province/{$selectedProvince}.json");
+                                    $province = $response->json();
+                                    @endphp
+                                    <option value="{{ $selectedProvince }}" selected>{{ $province['name'] }}</option>
+                                    @endif
                                 </select>
+                                @error('province')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="col-span-2 flex justify-end">
@@ -285,19 +395,20 @@
                     </svg>
                 </button>
                 <div x-show="open" class="mt-4">
-                    <form method="POST" action="" class="space-y-6">
+                    <form method="POST" action="{{ route('identity.updateCurrentDomicile') }}" class="space-y-6">
                         @csrf
+                        @method('patch')
 
                         <!-- NIK -->
                         <div>
                             <input type="hidden" name="nik" id="nik"
                                 class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                required>
+                                required value="{{ $current_domicile->nik }}">
                         </div>
 
                         <!-- Type -->
                         <div>
-                            <input type="hidden" name="type" id="type" value="current_domicile"
+                            <input type="hidden" name="type" id="type" value="{{ $current_domicile->type }}"
                                 class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
                                 required>
                         </div>
@@ -308,8 +419,11 @@
                                 <label for="street_current"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Street</label>
                                 <input type="text" name="street" id="street_current"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('street') border-red-500 @enderror"
+                                    value="{{ old('street', $current_domicile->street) }}" required>
+                                @error('street')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- RT -->
@@ -317,8 +431,11 @@
                                 <label for="rt_current"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">RT</label>
                                 <input type="number" min="1" name="rt" id="rt_current"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('rt') border-red-500 @enderror"
+                                    value="{{ old('rt', $current_domicile->rt) }}" required>
+                                @error('rt')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- RW -->
@@ -326,8 +443,11 @@
                                 <label for="rw_current"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">RW</label>
                                 <input type="number" min="1" name="rw" id="rw_current"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('rw') border-red-500 @enderror"
+                                    value="{{ old('rw', $current_domicile->rw) }}" required>
+                                @error('rw')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Postal Code -->
@@ -335,8 +455,11 @@
                                 <label for="postal_code_current"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Kode Pos</label>
                                 <input type="text" name="postal_code" id="postal_code_current"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('postal_code') border-red-500 @enderror"
+                                    value="{{ old('postal_code', $current_domicile->postal_code) }}" required>
+                                @error('postal_code')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Village -->
@@ -344,10 +467,24 @@
                                 <label for="village_current"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Desa/Kelurahan</label>
                                 <select name="village" id="village_current"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('village') border-red-500 @enderror"
                                     required>
+                                    @php
+                                    $selectedVillage = old('village', $current_domicile->village);
+                                    @endphp
                                     <option value="">Pilih Desa/Kelurahan</option>
+                                    @if($selectedVillage)
+                                    @php
+                                    $response =
+                                    Http::get("https://www.emsifa.com/api-wilayah-indonesia/api/village/{$selectedVillage}.json");
+                                    $village = $response->json();
+                                    @endphp
+                                    <option value="{{ $selectedVillage }}" selected>{{ $village['name'] }}</option>
+                                    @endif
                                 </select>
+                                @error('village')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- District -->
@@ -355,10 +492,24 @@
                                 <label for="district_current"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Kecamatan</label>
                                 <select name="district" id="district_current"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('district') border-red-500 @enderror"
                                     required>
+                                    @php
+                                    $selectedDistrict = old('district', $current_domicile->district);
+                                    @endphp
                                     <option value="">Pilih Kecamatan</option>
+                                    @if($selectedDistrict)
+                                    @php
+                                    $response =
+                                    Http::get("https://www.emsifa.com/api-wilayah-indonesia/api/district/{$selectedDistrict}.json");
+                                    $district = $response->json();
+                                    @endphp
+                                    <option value="{{ $selectedDistrict }}" selected>{{ $district['name'] }}</option>
+                                    @endif
                                 </select>
+                                @error('district')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Regency -->
@@ -366,10 +517,24 @@
                                 <label for="regency_current"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Kabupaten/Kota</label>
                                 <select name="regency" id="regency_current"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('regency') border-red-500 @enderror"
                                     required>
+                                    @php
+                                    $selectedRegency = old('regency', $current_domicile->regency);
+                                    @endphp
                                     <option value="">Pilih Kab/Kota</option>
+                                    @if($selectedRegency)
+                                    @php
+                                    $response =
+                                    Http::get("https://www.emsifa.com/api-wilayah-indonesia/api/regency/{$selectedRegency}.json");
+                                    $regency = $response->json();
+                                    @endphp
+                                    <option value="{{ $selectedRegency }}" selected>{{ $regency['name'] }}</option>
+                                    @endif
                                 </select>
+                                @error('regency')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Province -->
@@ -377,10 +542,24 @@
                                 <label for="province_current"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Provinsi</label>
                                 <select name="province" id="province_current"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('province') border-red-500 @enderror"
                                     required>
+                                    @php
+                                    $selectedProvince = old('province', $current_domicile->province);
+                                    @endphp
                                     <option value="">Pilih Provinsi</option>
+                                    @if($selectedProvince)
+                                    @php
+                                    $response =
+                                    Http::get("https://www.emsifa.com/api-wilayah-indonesia/api/province/{$selectedProvince}.json");
+                                    $province = $response->json();
+                                    @endphp
+                                    <option value="{{ $selectedProvince }}" selected>{{ $province['name'] }}</option>
+                                    @endif
                                 </select>
+                                @error('province')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="col-span-2 flex justify-end">
@@ -406,97 +585,122 @@
                     </svg>
                 </button>
                 <div x-show="open" class="mt-4">
-                    <form method="POST" action="" class="space-y-6">
+                    <form method="POST" action="{{ route('identity.updateFather') }}" class="space-y-6">
                         @csrf
+                        @method('patch')
 
                         <!-- NIK -->
                         <div>
-                            <input type="hidden" name="nik" id="nik"
+                            <input type="hidden" name="nik" id="nik_father"
                                 class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                required>
+                                value="{{ $father->nik }}" required>
                         </div>
 
                         <!-- Type -->
                         <div>
-                            <input type="hidden" name="type" id="type" value="father"
+                            <input type="hidden" name="type" id="type_father"
                                 class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                required>
+                                value="{{ $father->type }}" required>
                         </div>
 
                         <div class="grid grid-cols-2 gap-4">
                             <!-- Status -->
                             <div>
-                                <label for="status"
+                                <label for="status_father"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Status</label>
-                                <input type="text" name="status" id="status"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                <input type="text" name="status" id="status_father"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('status') border-red-500 @enderror"
+                                    value="{{ old('status', $father->status) }}" required>
+                                @error('status')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Full Name -->
                             <div>
-                                <label for="full_name"
+                                <label for="full_name_father"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nama
                                     Lengkap</label>
-                                <input type="text" name="full_name" id="full_name"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                <input type="text" name="full_name" id="full_name_father"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('full_name') border-red-500 @enderror"
+                                    value="{{ old('full_name', $father->full_name) }}" required>
+                                @error('full_name')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Last Education -->
                             <div>
-                                <label for="last_education"
+                                <label for="last_education_father"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Pendidikan
                                     Terakhir</label>
-                                <input type="text" name="last_education" id="last_education"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                <input type="text" name="last_education" id="last_education_father"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('last_education') border-red-500 @enderror"
+                                    value="{{ old('last_education', $father->last_education) }}" required>
+                                @error('last_education')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Job -->
                             <div>
-                                <label for="job"
+                                <label for="job_father"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Pekerjaan</label>
-                                <input type="text" name="job" id="job"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                <input type="text" name="job" id="job_father"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('job') border-red-500 @enderror"
+                                    value="{{ old('job', $father->job) }}" required>
+                                @error('job')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Position -->
                             <div>
-                                <label for="position"
+                                <label for="position_father"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Posisi</label>
-                                <input type="text" name="position" id="position"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                <input type="text" name="position" id="position_father"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('position') border-red-500 @enderror"
+                                    value="{{ old('position', $father->position) }}" required>
+                                @error('position')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Income -->
                             <div>
-                                <label for="income"
+                                <label for="income_father"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Penghasilan</label>
-                                <input type="number" name="income" id="income"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                <input type="number" name="income" id="income_father"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('income') border-red-500 @enderror"
+                                    value="{{ old('income', $father->income) }}" required>
+                                @error('income')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Phone -->
                             <div>
-                                <label for="phone"
+                                <label for="phone_father"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nomor
                                     Handphone</label>
-                                <input type="tel" name="phone" id="phone"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                <input type="tel" name="phone" id="phone_father"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('phone') border-red-500 @enderror"
+                                    value="{{ old('phone', $father->phone) }}" required>
+                                @error('phone')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Address -->
                             <div>
-                                <label for="address"
+                                <label for="address_father"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Alamat</label>
-                                <textarea name="address" id="address"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required></textarea>
+                                <textarea name="address" id="address_father"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('address') border-red-500 @enderror"
+                                    required>{{ old('address', $father->address) }}</textarea>
+                                @error('address')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
 
@@ -507,8 +711,6 @@
                             </button>
                         </div>
                     </form>
-
-
                 </div>
             </div>
 
@@ -523,19 +725,20 @@
                     </svg>
                 </button>
                 <div x-show="open" class="mt-4">
-                    <form method="POST" action="" class="space-y-6">
+                    <form method="POST" action="{{ route('identity.updateMother') }}" class="space-y-6">
                         @csrf
+                        @method('patch')
 
                         <!-- NIK -->
                         <div>
-                            <input type="hidden" name="nik" id="nik"
+                            <input type="hidden" name="nik" id="nik_mother"
                                 class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                required>
+                                value="{{ $mother->nik }}" required>
                         </div>
 
                         <!-- Type -->
                         <div>
-                            <input type="hidden" name="type" id="type" value="mother"
+                            <input type="hidden" name="type" id="type_mother" value="{{ $mother->type }}"
                                 class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
                                 required>
                         </div>
@@ -543,77 +746,101 @@
                         <div class="grid grid-cols-2 gap-4">
                             <!-- Status -->
                             <div>
-                                <label for="status"
+                                <label for="status_mother"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Status</label>
-                                <input type="text" name="status" id="status"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                <input type="text" name="status" id="status_mother"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('status') border-red-500 @enderror"
+                                    value="{{ old('status', $mother->status) }}" required>
+                                @error('status')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Full Name -->
                             <div>
-                                <label for="full_name"
+                                <label for="full_name_mother"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nama
                                     Lengkap</label>
-                                <input type="text" name="full_name" id="full_name"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                <input type="text" name="full_name" id="full_name_mother"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('full_name') border-red-500 @enderror"
+                                    value="{{ old('full_name', $mother->full_name) }}" required>
+                                @error('full_name')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Last Education -->
                             <div>
-                                <label for="last_education"
+                                <label for="last_education_mother"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Pendidikan
                                     Terakhir</label>
-                                <input type="text" name="last_education" id="last_education"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                <input type="text" name="last_education" id="last_education_mother"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('last_education') border-red-500 @enderror"
+                                    value="{{ old('last_education', $mother->last_education) }}" required>
+                                @error('last_education')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Job -->
                             <div>
-                                <label for="job"
+                                <label for="job_mother"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Pekerjaan</label>
-                                <input type="text" name="job" id="job"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                <input type="text" name="job" id="job_mother"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('job') border-red-500 @enderror"
+                                    value="{{ old('job', $mother->job) }}" required>
+                                @error('job')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Position -->
                             <div>
-                                <label for="position"
+                                <label for="position_mother"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Posisi</label>
-                                <input type="text" name="position" id="position"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                <input type="text" name="position" id="position_mother"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('position') border-red-500 @enderror"
+                                    value="{{ old('position', $mother->position) }}" required>
+                                @error('position')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Income -->
                             <div>
-                                <label for="income"
+                                <label for="income_mother"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Penghasilan</label>
-                                <input type="number" name="income" id="income"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                <input type="number" name="income" id="income_mother"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('income') border-red-500 @enderror"
+                                    value="{{ old('income', $mother->income) }}" required>
+                                @error('income')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Phone -->
                             <div>
-                                <label for="phone"
+                                <label for="phone_mother"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nomor
                                     Handphone</label>
-                                <input type="tel" name="phone" id="phone"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                <input type="tel" name="phone" id="phone_mother"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('phone') border-red-500 @enderror"
+                                    value="{{ old('phone', $mother->phone) }}" required>
+                                @error('phone')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Address -->
                             <div>
-                                <label for="address"
+                                <label for="address_mother"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Alamat</label>
-                                <textarea name="address" id="address"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required></textarea>
+                                <textarea name="address" id="address_mother"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('address') border-red-500 @enderror"
+                                    required>{{ old('address', $mother->address) }}</textarea>
+                                @error('address')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
 
@@ -624,8 +851,6 @@
                             </button>
                         </div>
                     </form>
-
-
                 </div>
             </div>
 
@@ -640,19 +865,20 @@
                     </svg>
                 </button>
                 <div x-show="open" class="mt-4">
-                    <form method="POST" action="" class="space-y-6">
+                    <form method="POST" action="{{ route('identity.updateGuardian') }}" class="space-y-6">
                         @csrf
+                        @method('patch')
 
                         <!-- NIK -->
                         <div>
-                            <input type="hidden" name="nik" id="nik"
+                            <input type="hidden" name="nik" id="nik_guardian"
                                 class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                required>
+                                value="{{ $guardian->nik }}" required>
                         </div>
 
                         <!-- Type -->
                         <div>
-                            <input type="hidden" name="type" id="type" value="guardian"
+                            <input type="hidden" name="type" id="type_guardian" value="{{ $guardian->type }}"
                                 class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
                                 required>
                         </div>
@@ -660,77 +886,101 @@
                         <div class="grid grid-cols-2 gap-4">
                             <!-- Status -->
                             <div>
-                                <label for="status"
+                                <label for="status_guardian"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Status</label>
-                                <input type="text" name="status" id="status"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                <input type="text" name="status" id="status_guardian"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('status') border-red-500 @enderror"
+                                    value="{{ old('status', $guardian->status) }}" required>
+                                @error('status')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Full Name -->
                             <div>
-                                <label for="full_name"
+                                <label for="full_name_guardian"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nama
                                     Lengkap</label>
-                                <input type="text" name="full_name" id="full_name"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                <input type="text" name="full_name" id="full_name_guardian"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('full_name') border-red-500 @enderror"
+                                    value="{{ old('full_name', $guardian->full_name) }}" required>
+                                @error('full_name')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Last Education -->
                             <div>
-                                <label for="last_education"
+                                <label for="last_education_guardian"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Pendidikan
                                     Terakhir</label>
-                                <input type="text" name="last_education" id="last_education"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                <input type="text" name="last_education" id="last_education_guardian"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('last_education') border-red-500 @enderror"
+                                    value="{{ old('last_education', $guardian->last_education) }}" required>
+                                @error('last_education')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Job -->
                             <div>
-                                <label for="job"
+                                <label for="job_guardian"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Pekerjaan</label>
-                                <input type="text" name="job" id="job"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                <input type="text" name="job" id="job_guardian"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('job') border-red-500 @enderror"
+                                    value="{{ old('job', $guardian->job) }}" required>
+                                @error('job')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Position -->
                             <div>
-                                <label for="position"
+                                <label for="position_guardian"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Posisi</label>
-                                <input type="text" name="position" id="position"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                <input type="text" name="position" id="position_guardian"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('position') border-red-500 @enderror"
+                                    value="{{ old('position', $guardian->position) }}" required>
+                                @error('position')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Income -->
                             <div>
-                                <label for="income"
+                                <label for="income_guardian"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Penghasilan</label>
-                                <input type="number" name="income" id="income"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                <input type="number" name="income" id="income_guardian"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('income') border-red-500 @enderror"
+                                    value="{{ old('income', $guardian->income) }}" required>
+                                @error('income')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Phone -->
                             <div>
-                                <label for="phone"
+                                <label for="phone_guardian"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nomor
                                     Handphone</label>
-                                <input type="tel" name="phone" id="phone"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required>
+                                <input type="tel" name="phone" id="phone_guardian"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('phone') border-red-500 @enderror"
+                                    value="{{ old('phone', $guardian->phone) }}" required>
+                                @error('phone')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Address -->
                             <div>
-                                <label for="address"
+                                <label for="address_guardian"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Alamat</label>
-                                <textarea name="address" id="address"
-                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600"
-                                    required></textarea>
+                                <textarea name="address" id="address_guardian"
+                                    class="mt-1 block w-full rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 @error('address') border-red-500 @enderror"
+                                    required>{{ old('address', $guardian->address) }}</textarea>
+                                @error('address')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
 
@@ -741,8 +991,6 @@
                             </button>
                         </div>
                     </form>
-
-
                 </div>
             </div>
 
@@ -757,62 +1005,144 @@
                     </svg>
                 </button>
                 <div x-show="open" class="mt-4">
-                    <form method="POST" action="" class="space-y-6">
+                    <form method="POST" action="{{ route('identity.updatedoc') }}" class="space-y-6"
+                        enctype="multipart/form-data">
                         @csrf
+                        @method('patch')
+                        <input type="hidden" name="nik" value="{{ $identity->nik }}">
 
                         <div class="grid grid-cols-2 gap-4">
                             <div>
-                                <label for="file_kk"
-                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300">Kartu
-                                    Keluarga</label>
-                                <p class="text-sm">File dengan format .PDF. Maksimal 2MB</p>
-                                <div class="flex gap-3 mt-1 w-full border border-gray-300 rounded-md">
-                                    <label
-                                        class="flex items-center justify-between px-3 py-2 text-sm text-gray-700 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 border-e border-gray-300 dark:border-gray-700 rounded-s-md cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 w-2/6">
-                                        <span>Pilih File</span>
-                                        <input type="file" name="file_kk" id="file_kk" class="hidden" required>
+                                <div class="flex justify-between items-center">
+                                    <label for="file_kk"
+                                        class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                                        Kartu Keluarga
                                     </label>
-                                    <p id="file_kk_name" class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                                        Tidak ada file yang dipilih
-                                    </p>
+                                    @if($identity->kk_file)
+                                    <a href="{{ Storage::url($identity->kk_file) }}" target="_blank"
+                                        class="text-sm text-blue-600 hover:underline">
+                                        Lihat File Tersimpan
+                                    </a>
+                                    @endif
                                 </div>
+
+                                <p class="text-xs text-gray-500 mb-2">File PDF, Maks 2MB</p>
+
+                                <div class="relative border-2 border-dashed rounded-lg
+                                            @error('kk_file') border-red-500 @else border-gray-300 @enderror
+                                            dark:border-gray-600 p-4 text-center">
+                                    <input type="file" name="kk_file" id="file_kk" accept=".pdf"
+                                        class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" {{
+                                        $identity->kk_file ? '' : 'required' }}
+                                    onchange="updateFileName(this, 'file_kk_name')">
+
+                                    <div class="flex flex-col items-center justify-center">
+                                        <svg class="w-10 h-10 text-gray-400 mb-2" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                            </path>
+                                        </svg>
+                                        <p id="file_kk_name" class="text-sm text-gray-600">
+                                            {{ old('kk_file_name') ?? 'Pilih File PDF' }}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                @error('kk_file')
+                                <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span>
+                                @enderror
                             </div>
 
-                            <!-- Foto KTP -->
+                            <!-- KTP -->
                             <div>
-                                <label for="file_ktp"
-                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300">KTP</label>
-                                <p class="text-sm">Ambil/Unggah Foto KTP format .PNG, .JPG, .WEBP. Maksimal 2MB</p>
-                                <div class="flex gap-3 mt-1 w-full border border-gray-300 rounded-md">
-                                    <label
-                                        class="flex items-center justify-between px-3 py-2 text-sm text-gray-700 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 border-e border-gray-300 dark:border-gray-700 rounded-s-md cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 w-2/6">
-                                        <span>Pilih File</span>
-                                        <input type="file" accept="image" name="file_ktp" id="file_ktp" class="hidden"
-                                            required>
+                                <div class="flex justify-between items-center">
+                                    <label for="file_ktp"
+                                        class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                                        Foto KTP
                                     </label>
-                                    <p id="file_ktp_name" class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                                        Tidak ada file yang dipilih
-                                    </p>
+                                    @if($identity->ktp_photo)
+                                    <a href="{{ Storage::url($identity->ktp_photo) }}" target="_blank"
+                                        class="text-sm text-blue-600 hover:underline">
+                                        Lihat Foto Tersimpan
+                                    </a>
+                                    @endif
                                 </div>
+
+                                <p class="text-xs text-gray-500 mb-2">Foto PNG/JPG/WEBP, Maks 2MB</p>
+
+                                <div class="relative border-2 border-dashed rounded-lg
+                                            @error('ktp_photo') border-red-500 @else border-gray-300 @enderror
+                                            dark:border-gray-600 p-4 text-center">
+                                    <input type="file" name="ktp_photo" id="file_ktp"
+                                        accept="image/png,image/jpeg,image/webp"
+                                        class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" {{
+                                        $identity->ktp_photo ? '' : 'required' }}
+                                    onchange="updateFileName(this, 'file_ktp_name')">
+
+                                    <div class="flex flex-col items-center justify-center">
+                                        <svg class="w-10 h-10 text-gray-400 mb-2" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z">
+                                            </path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        </svg>
+                                        <p id="file_ktp_name" class="text-sm text-gray-600">
+                                            {{ old('ktp_photo_name') ?? 'Pilih Foto KTP' }}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                @error('ktp_photo')
+                                <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <!-- Pas Foto -->
                             <div>
-                                <label for="file_pas_foto"
-                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300">Pas Foto</label>
-                                <p class="text-sm"><em>Close-Up</em> dengan <em>Background</em> Merah/Biru</p>
-                                <p class="text-sm">File dengan format .PDF. Maksimal 2MB</p>
-                                <div class="flex gap-3 mt-1 w-full border border-gray-300 rounded-md">
-                                    <label
-                                        class="flex items-center justify-between px-3 py-2 text-sm text-gray-700 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 border-e border-gray-300 dark:border-gray-700 rounded-s-md cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 w-2/6">
-                                        <span>Pilih File</span>
-                                        <input type="file" name="file_pas_foto" id="file_pas_foto" class="hidden"
-                                            required>
+                                <div class="flex justify-between items-center">
+                                    <label for="file_pas_foto"
+                                        class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                                        Pas Foto
                                     </label>
-                                    <p id="file_pas_foto_name" class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                                        Tidak ada file yang dipilih
-                                    </p>
+                                    @if($identity->pass_photo)
+                                    <a href="{{ Storage::url($identity->pass_photo) }}" target="_blank"
+                                        class="text-sm text-blue-600 hover:underline">
+                                        Lihat File Tersimpan
+                                    </a>
+                                    @endif
                                 </div>
+
+                                <p class="text-xs text-gray-500 mb-2">
+                                    <em>Close-Up</em> dengan <em>Background</em> Merah/Biru, Maks 2MB
+                                </p>
+
+                                <div class="relative border-2 border-dashed rounded-lg
+                                            @error('pass_photo') border-red-500 @else border-gray-300 @enderror
+                                            dark:border-gray-600 p-4 text-center">
+                                    <input type="file" name="pass_photo" id="file_pas_foto" accept=".pdf"
+                                        class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" {{
+                                        $identity->pass_photo ? '' : 'required' }}
+                                    onchange="updateFileName(this, 'file_pas_foto_name')">
+
+                                    <div class="flex flex-col items-center justify-center">
+                                        <svg class="w-10 h -10 text-gray-400 mb-2" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                            </path>
+                                        </svg>
+                                        <p id="file_pas_foto_name" class="text-sm text-gray-600">
+                                            {{ old('pass_photo_name') ?? 'Pilih File PDF' }}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                @error('pass_photo')
+                                <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
 

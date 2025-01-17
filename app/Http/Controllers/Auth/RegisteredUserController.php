@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use App\Models\Family;
 use App\Models\Identity;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use App\Http\Controllers\Controller;
+use App\Models\Address;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\RedirectResponse;
@@ -42,11 +44,41 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        Identity::create([$request->nik]);
-
         event(new Registered($user));
 
         Auth::login($user);
+
+                // Create identity record with proper validation
+                $identity = Identity::create([
+                    'nik' => $request->nik,
+                    'user_id' => auth()->id() // Assuming nik field exists in identities table
+                ]);
+
+                Address::create([
+                    'nik' => $request->nik,
+                    'type' => 'ktp_domicile',
+                ]);
+
+                Address::create([
+                    'nik' => $request->nik,
+                    'type' => 'current_domicile',
+                ]);
+
+                // Create family records with proper relationship
+                Family::create([
+                    'nik' => $request->nik,
+                    'type' => 'father',
+                ]);
+
+                Family::create([
+                    'nik' => $request->nik,
+                    'type' => 'mother',
+                ]);
+
+                Family::create([
+                    'nik' => $request->nik,
+                    'type' => 'guardian',
+                ]);
 
         return redirect(route('dashboard', absolute: false));
     }

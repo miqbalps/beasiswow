@@ -1,9 +1,14 @@
 <?php
 
+use App\Models\Address;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FamilyController;
+use App\Http\Controllers\AddressController;
+use App\Http\Controllers\LastEduController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\IdentityController;
-use App\Http\Controllers\LastEduController;
+use App\Http\Controllers\AchievementController;
+use App\Http\Controllers\ApplicationController;
 
 Route::get('/', function () {
     return view('guest');
@@ -34,7 +39,18 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware(['user'])->group(function () {
         Route::resource('identity', IdentityController::class)->only(['index']);
+        Route::patch('/identity', [IdentityController::class, 'update'])->name('identity.update');
+        Route::patch('/identitydoc', [IdentityController::class, 'updateIdentityDoc'])->name('identity.updatedoc');
+        Route::patch('/ktpdomicile', [AddressController::class, 'updateKtpDomicile'])->name('identity.updateKtpDomicile');
+        Route::patch('/currentdomicile', [AddressController::class, 'updateCurrentDomicile'])->name('identity.updateCurrentDomicile');
+        Route::patch('/father', [FamilyController::class, 'updateFather'])->name('identity.updateFather');
+        Route::patch('/mother', [FamilyController::class, 'updateMother'])->name('identity.updateMother');
+        Route::patch('/guardian', [FamilyController::class, 'updateGuardian'])->name('identity.updateGuardian');
+
         Route::resource('lastedu', LastEduController::class)->only(['index']);
+        Route::patch('/lastedu', [LastEduController::class, 'update'])->name('lastedu.update');
+        Route::resource('achievements', AchievementController::class)->only(['index']);
+        Route::resource('applications', ApplicationController::class)->only(['index', 'create', 'store', 'show']);
     });
 });
 

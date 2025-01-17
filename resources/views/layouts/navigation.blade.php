@@ -23,6 +23,14 @@
                     <x-nav-link :href="route('lastedu.index')" :active="request()->routeIs('lastedu.index')">
                         {{ __('Pendidikan Terakhir') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('achievements.index')" :active="request()->routeIs('achievements.index')">
+                        {{ __('Prestasi') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('applications.index')" :active="request()->routeIs('applications.index')">
+                        {{ __('Daftar Beasiswa') }}
+                    </x-nav-link>
                 </div>
             </div>
 

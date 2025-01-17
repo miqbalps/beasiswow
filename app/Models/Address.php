@@ -21,6 +21,6 @@ class Address extends Model
 
     public function identity()
     {
-        return $this->belongsTo(Identity::class);
+        return $this->belongsTo(Identity::class, 'nik', 'nik');
     }
 }

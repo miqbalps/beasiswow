@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Identitas Diri') }}
+            {{ __('Pendidikan Terakhir') }}
         </h2>
     </x-slot>
 
@@ -29,7 +29,7 @@
                         </div>
 
                         <div class="grid grid-cols-2 gap-4">
-                            <!-- Income -->
+                            <!-- Semester -->
                             <div>
                                 <label for="semester"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Semester</label>
@@ -38,7 +38,7 @@
                                     required>
                             </div>
 
-                            <!-- Phone -->
+                            <!-- GPA -->
                             <div>
                                 <label for="gpa" class="block text-sm font-medium text-gray-700 dark:text-gray-300">IPK
                                     Terakhir</label>
@@ -49,7 +49,7 @@
 
                             <!-- Transcript File -->
                             <div>
-                                <label for="file_kk"
+                                <label for="transcript_file"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Transkrip
                                     Nilai</label>
                                 <p class="text-sm">File dengan format .PDF. Maksimal 2MB</p>
@@ -57,9 +57,10 @@
                                     <label
                                         class="flex items-center justify-between px-3 py-2 text-sm text-gray-700 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 border-e border-gray-300 dark:border-gray-700 rounded-s-md cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 w-2/6">
                                         <span>Pilih File</span>
-                                        <input type="file" name="file_kk" id="file_kk" class="hidden" required>
+                                        <input type="file" name="transcript_file" id="transcript_file" class="hidden"
+                                            required>
                                     </label>
-                                    <p id="file_kk_name" class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                                    <p id="transcript_file_name" class="mt-2 text-sm text-gray-600 dark:text-gray-400">
                                         Tidak ada file yang dipilih
                                     </p>
                                 </div>
@@ -82,19 +83,9 @@
     </div>
 
     <script>
-        document.getElementById("file_kk").addEventListener("change", function () {
+        document.getElementById("transcript_file").addEventListener("change", function () {
             const fileName = this.files[0]?.name || "Tidak ada file yang dipilih";
-            document.getElementById("file_kk_name").textContent = fileName;
-        });
-
-        document.getElementById("file_ktp").addEventListener("change", function () {
-            const fileName = this.files[0]?.name || "Tidak ada file yang dipilih";
-            document.getElementById("file_ktp_name").textContent = fileName;
-        });
-
-        document.getElementById("file_pas_foto").addEventListener("change", function () {
-            const fileName = this.files[0]?.name || "Tidak ada file yang dipilih";
-            document.getElementById("file_pas_foto_name").textContent = fileName;
+            document.getElementById("transcript_file_name").textContent = fileName;
         });
     </script>
 </x-app-layout>

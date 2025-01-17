@@ -6,10 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Identity extends Model
 {
+    // Specify NIK as the primary key
+    protected $primaryKey = 'nik';
+
+    // Disable auto-incrementing for primary key
+    public $incrementing = false;
+
+    // Specify the key type if it's not an integer
+    protected $keyType = 'string';
+
     protected $fillable = [
         'nik',
         'user_id',
-        'name',
         'nkk',
         'birth_place',
         'birth_date',
@@ -19,7 +27,10 @@ class Identity extends Model
         'phone',
         'child_number',
         'origin',
-        'income'
+        'income',
+        'kk_file',
+        'ktp_photo',
+        'pass_photo'
     ];
 
     public function user()

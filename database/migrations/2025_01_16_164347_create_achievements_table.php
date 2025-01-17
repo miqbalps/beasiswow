@@ -15,8 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('nik');
             $table->string('name');
-            $table->string('level');
+            $table->enum('type', ['individual', 'group']);
+            $table->enum('level', ['international', 'national', 'regional', 'local']);
+            $table->enum('rank', ['1', '2', '3', 'honorable-mention']);
             $table->string('year');
+            $table->string('proof_file');
             $table->foreign('nik')->references('nik')->on('identities')->onDelete('cascade');
             $table->timestamps();
         });
