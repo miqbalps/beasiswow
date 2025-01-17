@@ -87,7 +87,7 @@
                     Tentang
                 </a>
                 <a class="text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300"
-                    href="#">
+                    href="#alumni">
                     Alumni
                 </a>
                 <a class="text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300"
@@ -127,7 +127,7 @@
                         Tentang
                     </a>
                     <a class="py-3 text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300 border-b border-gray-100 dark:border-gray-800"
-                        href="#">
+                        href="#alumni">
                         Alumni
                     </a>
                     <a class="py-3 text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300"
@@ -190,7 +190,7 @@
         </div>
     </section>
     <!-- Testimonials Section -->
-    <section class="container mx-auto px-4 py-16">
+    <section class="container mx-auto px-4 py-16" id="alumni">
         <h2 class="text-3xl font-bold text-center text-amber-500">
             Testimoni Alumni
         </h2>
