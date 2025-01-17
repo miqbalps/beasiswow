@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use App\Http\Controllers\Controller;
 use App\Models\Address;
+use App\Models\LastEdu;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\RedirectResponse;
@@ -78,6 +79,10 @@ class RegisteredUserController extends Controller
                 Family::create([
                     'nik' => $request->nik,
                     'type' => 'guardian',
+                ]);
+
+                LastEdu::create([
+                    'nik' => $request->nik,
                 ]);
 
         return redirect(route('dashboard', absolute: false));

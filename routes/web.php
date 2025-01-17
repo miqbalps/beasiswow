@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\IdentityController;
 use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\ApplicationController;
+use App\Models\LastEdu;
 
 Route::get('/', function () {
     return view('guest');
@@ -49,6 +50,8 @@ Route::middleware('auth')->group(function () {
 
         Route::resource('lastedu', LastEduController::class)->only(['index']);
         Route::patch('/lastedu', [LastEduController::class, 'update'])->name('lastedu.update');
+        Route::patch('/transcriptfile', [LastEduController::class, 'updateTranscript'])->name('lastedu.updateTranscript');
+
         Route::resource('achievements', AchievementController::class)->only(['index']);
         Route::resource('applications', ApplicationController::class)->only(['index', 'create', 'store', 'show']);
     });
