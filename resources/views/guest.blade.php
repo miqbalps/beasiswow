@@ -69,7 +69,7 @@
                 <img alt="Logo" class="h-10 w-10 hover:opacity-75 transition-opacity duration-300 rounded" height="40"
                     src="{{URL::asset('img/Logo1.png')}}"
                     width="40" />
-                    <a class="text-amber-600 dark:text-gray-300 hover:text-amber-500 transition-colors duration-300 text-bold" href="#">
+                    <a class="text-amber-500 dark:text-gray-300 hover:text-amber-600 transition-colors duration-300 font-bold" href="#">
                         Beasiswow
                     </a>
             </div>
@@ -151,7 +151,7 @@
         <div class="md:w-1/2 mt-8 md:mt-0">
             <img alt="Graduation hats being thrown in the air"
                 class="rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300" height="300"
-                src="https://placehold.co/500x400" width="500" />
+                src="https://st.depositphotos.com/1718940/2891/i/450/depositphotos_28916007-stock-photo-historic-tate-laboratory-of-physics.jpg" width="500" />
         </div>
     </section>
     <!-- Statistics Section -->
@@ -255,7 +255,7 @@
                             </i>
                             <div class="ml-2">
                                 <p class="font-bold dark:text-gray-300">
-                                    Bela
+                                    Siti
                                 </p>
                                 <p class="text-gray-500 dark:text-gray-400">
                                     Mahasiswa Penerima Beasiswa Akademik.
@@ -273,7 +273,7 @@
                             </i>
                             <div class="ml-2">
                                 <p class="font-bold dark:text-gray-300">
-                                    Nizar
+                                    Yanto
                                 </p>
                                 <p class="text-gray-500 dark:text-gray-400">
                                     Mahasiswa Penerima Beasiswa Unggulan.
@@ -291,7 +291,7 @@
                             </i>
                             <div class="ml-2">
                                 <p class="font-bold dark:text-gray-300">
-                                    Rainova
+                                    Toyib
                                 </p>
                                 <p class="text-gray-500 dark:text-gray-400">
                                     Mahasiswa Penerima Beasiswa Kebutuhan Khusus.
@@ -315,63 +315,73 @@
             </button>
         </div>
     </section>
-    <!-- Informasi Beasiswa Section -->
-    <section class="container mx-auto px-4 py-16">
-        <h2 class="text-3xl font-bold text-center text-amber-500 mb-8">
-            Informasi Beasiswa Terbaru
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- Artikel 1 -->
-            <a href="#" class="block">
-                <div class="bg-white dark:bg-[#18181B] rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                    <img src="https://placehold.co/350x200" alt="Artikel Beasiswa 1" class="rounded-t-lg">
-                    <div class="p-4">
-                        <h3 class="font-bold text-gray-700 dark:text-gray-300">
-                            Beasiswa Kuliah Gratis 2025
-                        </h3>
-                        <p class="text-gray-500 dark:text-gray-400 mt-2 text-sm">
-                            <span class="font-semibold text-gray-700 dark:text-gray-300">Periode:</span> Januari 2025 - Desember 2025
-                        </p>
-                        <p class="text-gray-500 dark:text-gray-400 mt-2 text-sm">
-                            Program beasiswa ini mencakup biaya kuliah penuh hingga lulus bagi mahasiswa berprestasi.
-                        </p>
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-amber-500 mb-8">
+                Informasi Beasiswa Terbaru
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Artikel 1 -->
+                <a href="#" class="block">
+                    <div class="bg-white dark:bg-[#18181B] rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 h-full">
+                        <div class="aspect-[16/9] w-full">
+                            <img src="https://placehold.co/350x200" alt="Artikel Beasiswa 1"
+                                 class="rounded-t-lg w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-gray-700 dark:text-gray-300">
+                                Beasiswa Kuliah Gratis 2025
+                            </h3>
+                            <p class="text-gray-500 dark:text-gray-400 mt-2 text-sm">
+                                <span class="font-semibold text-gray-700 dark:text-gray-300">Periode:</span> Januari 2025 - Desember 2025
+                            </p>
+                            <p class="text-gray-500 dark:text-gray-400 mt-2 text-sm">
+                                Program beasiswa ini mencakup biaya kuliah penuh hingga lulus bagi mahasiswa berprestasi.
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <!-- Artikel 2 -->
-            <a href="#" class="block">
-                <div class="bg-white dark:bg-[#18181B] rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                    <img src="https://placehold.co/350x200" alt="Artikel Beasiswa 2" class="rounded-t-lg">
-                    <div class="p-4">
-                        <h3 class="font-bold text-gray-700 dark:text-gray-300">
-                            Beasiswa Penelitian 2025
-                        </h3>
-                        <p class="text-gray-500 dark:text-gray-400 mt-2 text-sm">
-                            <span class="font-semibold text-gray-700 dark:text-gray-300">Periode:</span> Maret 2025 - Agustus 2025
-                        </p>
-                        <p class="text-gray-500 dark:text-gray-400 mt-2 text-sm">
-                            Beasiswa ini mendukung mahasiswa aktif dan berprestasi dengan menunjang biaya kuliah penuh.
-                        </p>
+                </a>
+                <!-- Artikel 2 -->
+                <a href="#" class="block">
+                    <div class="bg-white dark:bg-[#18181B] rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 h-full">
+                        <div class="aspect-[16/9] w-full">
+                            <img src="https://placehold.co/350x200" alt="Artikel Beasiswa 2"
+                                 class="rounded-t-lg w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-gray-700 dark:text-gray-300">
+                                Beasiswa Penelitian 2025
+                            </h3>
+                            <p class="text-gray-500 dark:text-gray-400 mt-2 text-sm">
+                                <span class="font-semibold text-gray-700 dark:text-gray-300">Periode:</span> Maret 2025 - Agustus 2025
+                            </p>
+                            <p class="text-gray-500 dark:text-gray-400 mt-2 text-sm">
+                                Beasiswa ini mendukung mahasiswa aktif dan berprestasi dengan menunjang biaya kuliah penuh.
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <!-- Artikel 3 -->
-            <a href="#" class="block">
-                <div class="bg-white dark:bg-[#18181B] rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                    <img src="https://placehold.co/350x200" alt="Artikel Beasiswa 3" class="rounded-t-lg">
-                    <div class="p-4">
-                        <h3 class="font-bold text-gray-700 dark:text-gray-300">
-                            Beasiswa Siswa Berprestasi
-                        </h3>
-                        <p class="text-gray-500 dark:text-gray-400 mt-2 text-sm">
-                            <span class="font-semibold text-gray-700 dark:text-gray-300">Periode:</span> April 2025 - November 2025
-                        </p>
-                        <p class="text-gray-500 dark:text-gray-400 mt-2 text-sm">
-                            Program ini ditujukan untuk mahasiswa berprestasi,beasiswa ini juga mencakup tunjangan bulanan.
-                        </p>
+                </a>
+                <!-- Artikel 3 -->
+                <a href="#" class="block">
+                    <div class="bg-white dark:bg-[#18181B] rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 h-full">
+                        <div class="aspect-[16/9] w-full">
+                            <img src="https://placehold.co/350x200" alt="Artikel Beasiswa 1"
+                                 class="rounded-t-lg w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-gray-700 dark:text-gray-300">
+                                Beasiswa Siswa Berprestasi
+                            </h3>
+                            <p class="text-gray-500 dark:text-gray-400 mt-2 text-sm">
+                                <span class="font-semibold text-gray-700 dark:text-gray-300">Periode:</span> April 2025 - November 2025
+                            </p>
+                            <p class="text-gray-500 dark:text-gray-400 mt-2 text-sm">
+                                Program ini ditujukan untuk mahasiswa berprestasi,beasiswa ini juga mencakup tunjangan bulanan.
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
         <!-- Tombol Show All -->
         <div class="mt-8 text-center">
@@ -394,7 +404,7 @@
                         onclick="updateFAQ(0)">
                         <div class="flex justify-between items-center">
                             <p class="text-gray-700 dark:text-gray-300">
-                                Lorem ipsum dolor sit amet?
+                                Apa saja jenis beasiswa yang tersedia?
                             </p>
                             <i class="fas fa-chevron-right text-gray-500 dark:text-gray-400">
                             </i>
@@ -404,7 +414,7 @@
                         onclick="updateFAQ(1)">
                         <div class="flex justify-between items-center">
                             <p class="text-gray-700 dark:text-gray-300">
-                                Bagaimana Syarat dan Ketentuan Pendaftaran Beasiswa ini?
+                                Bagaimana syarat dan ketentuan pendaftaran beasiswa ini?
                             </p>
                             <i class="fas fa-chevron-right text-gray-500 dark:text-gray-400">
                             </i>
@@ -414,7 +424,7 @@
                         onclick="updateFAQ(2)">
                         <div class="flex justify-between items-center">
                             <p class="text-gray-700 dark:text-gray-300">
-                                Bagaimana alur pendaftaran Beasiswa ini?
+                                Bagaimana alur pendaftaran beasiswa ini?
                             </p>
                             <i class="fas fa-chevron-right text-gray-500 dark:text-gray-400">
                             </i>
@@ -424,7 +434,7 @@
                         onclick="updateFAQ(3)">
                         <div class="flex justify-between items-center">
                             <p class="text-gray-700 dark:text-gray-300">
-                                Lorem ipsum dolor sit, amet consectetur adipiscing?
+                                Apa saja dokumen yang perlu disiapkan?
                             </p>
                             <i class="fas fa-chevron-right text-gray-500 dark:text-gray-400">
                             </i>
@@ -434,8 +444,7 @@
                         onclick="updateFAQ(4)">
                         <div class="flex justify-between items-center">
                             <p class="text-gray-700 dark:text-gray-300">
-                                Lorem ipsum dolor sit amet consectetur adipiscing elit. Corporis
-                                ipsum in labore praesentium?
+                                Bagaimana jadwal seleksi dan pengumuman beasiswa?
                             </p>
                             <i class="fas fa-chevron-right text-gray-500 dark:text-gray-400">
                             </i>
@@ -445,13 +454,10 @@
                 <div class="md:w-1/2 mt-8 md:mt-0 md:ml-8">
                     <div class="bg-gray-100 dark:bg-[#18181B] p-6 rounded-lg shadow-md">
                         <h3 class="text-amber-500 font-bold" id="faq-title">
-                            Bagaimana Syarat dan Ketentuan Pendaftaran
-                            Beasiswa ini?
+                            Bagaimana syarat dan ketentuan pendaftaran beasiswa ini?
                         </h3>
                         <p class="mt-4 text-gray-700 dark:text-gray-300" id="faq-content">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod architecto numquam molestiae.
-                            Voluptatem distinctio aliquid dolor quisquam suscipit, iusto hic! Alias esse nobis
-                            blanditiis aliquam ipsa corrupti molestias harum natus!
+                            Untuk mendaftar beasiswa ini, mahasiswa perlu memenuhi kriteria tertentu seperti prestasi akademik, kebutuhan finansial, dan melengkapi dokumen yang diminta. Semua persyaratan dan ketentuan dapat ditemukan di portal Beasiswow.
                         </p>
                     </div>
                 </div>
@@ -465,15 +471,16 @@
                 Siap menjadi bagian dari kami?
             </h2>
             <p class="mt-4 text-gray-700 dark:text-gray-300">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus obcaecati officia reiciendis deserunt
-                voluptate vero tempora sapiente perspiciatis illo alias.
+                Jangan lewatkan kesempatan untuk mendapatkan beasiswa yang mendukung pendidikan Anda. Daftar sekarang dan raih masa depan yang lebih cerah bersama kami.
             </p>
             <div class="mt-8 flex space-x-4">
-                <a class="bg-amber-500 text-white px-4 py-2 rounded-full hover:bg-amber-600 transition-colors duration-300"
+                <a class="bg-amber-500 text-white px-4 py-2 rounded-full hover:bg-amber-600 transition-colors duration-300
+                    hover:bg-white hover:text-amber-500 hover:border-amber-500 border-2 border-transparent"
                     href="#">
                     Daftar
                 </a>
-                <a class="bg-white dark:bg-[#18181B] text-amber-500 border border-amber-500 px-4 py-2 rounded-full hover:bg-amber-100 dark:hover:bg-gray-700 transition-colors duration-300"
+                <a class="bg-white dark:bg-[#18181B] text-amber-500 border-amber-500 border-2 px-4 py-2 rounded-full transition-colors duration-300
+                    hover:bg-amber-500 hover:text-white"
                     href="#">
                     Kontak
                 </a>
@@ -482,7 +489,7 @@
         <div class="md:w-1/2 mt-8 md:mt-0">
             <img alt="Graduation cap on top of books and diploma"
                 class="rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300" height="300"
-                src="https://placehold.co/500x300" width="500" />
+                src="https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/47/2023/09/23/Foto-freepik-4293748762.jpg" width="450" />
         </div>
     </section>
     <!-- Footer -->
@@ -491,8 +498,8 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Logo Section -->
                 <div class="flex flex-col items-center md:items-start">
-                <img src="https://placehold.co/80x40" alt="Logo" class="h-10 w-20 hover:opacity-75 transition-opacity duration-300 mb-2">
-                <span class="text-gray-700 dark:text-gray-300 text-sm font-semibold">Beasiswow</span>
+                <img src="{{URL::asset('img/Logo1.png')}}" alt="Logo" class="h-10 w-10 hover:opacity-75 transition-opacity duration-300">
+                <span class="text-amber-500 dark:text-gray-300 text-sm font-semibold">Beasiswow</span>
                 </div>
 
                 <!-- Social Media Section -->
@@ -517,27 +524,28 @@
     </footer>
     <script>
         const faqData = [
-                {
-                    question: "Lorem ipsum dolor sit amet?",
-                    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam scelerisque posuere vivamus egestas porttitor."
-                },
-                {
-                    question: "Bagaimana Syarat dan Ketentuan Pendaftaran Beasiswa ini?",
-                    answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod architecto numquam molestiae. Voluptatem distinctio aliquid dolor quisquam suscipit, iusto hic! Alias esse nobis blanditiis aliquam ipsa corrupti molestias harum natus!"
-                },
-                {
-                    question: "Bagaimana alur pendaftaran Beasiswa ini?",
-                    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam scelerisque posuere vivamus egestas porttitor."
-                },
-                {
-                    question: "Lorem ipsum dolor sit, amet consectetur adipiscing?",
-                    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam scelerisque posuere vivamus egestas porttitor."
-                },
-                {
-                    question: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Corporis ipsum in labore praesentium?",
-                    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam scelerisque posuere vivamus egestas porttitor."
-                }
-            ];
+            {
+                question: "Apa saja jenis beasiswa yang tersedia?",
+                answer: "Beasiswow menyediakan berbagai jenis beasiswa, termasuk beasiswa prestasi, beasiswa bantuan finansial, dan beasiswa khusus untuk program tertentu. Informasi lebih lanjut dapat diakses di halaman katalog beasiswa."
+            },
+            {
+                question: "Bagaimana Syarat dan Ketentuan Pendaftaran Beasiswa ini?",
+                answer: "Syarat dan ketentuan pendaftaran bergantung pada jenis beasiswa yang dipilih. Umumnya, pelamar perlu memiliki IPK minimal tertentu, melampirkan dokumen pendukung, dan memenuhi kriteria tambahan yang telah ditentukan oleh institusi."
+            },
+            {
+                question: "Bagaimana alur pendaftaran Beasiswa ini?",
+                answer: "Proses pendaftaran dimulai dengan membuat akun di platform Beasiswow, memilih jenis beasiswa yang diinginkan, melengkapi formulir pendaftaran, mengunggah dokumen yang diperlukan, dan menunggu konfirmasi seleksi administrasi."
+            },
+            {
+                question: "Apa saja dokumen yang perlu disiapkan?",
+                answer: "Dokumen yang umumnya diperlukan meliputi transkrip nilai, surat rekomendasi, esai motivasi, dokumen pendukung finansial (jika relevan), dan KTP atau kartu identitas mahasiswa."
+            },
+            {
+                question: "Bagaimana jadwal seleksi dan pengumuman beasiswa?",
+                answer: "Jadwal seleksi dan pengumuman dapat berbeda untuk setiap jenis beasiswa. Informasi lengkap terkait tahapan seleksi akan tersedia di dashboard akun Beasiswow masing-masing pelamar."
+            }
+        ];
+
 
             function updateFAQ(index) {
                 const faqTitle = document.getElementById('faq-title');
