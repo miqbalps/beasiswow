@@ -186,7 +186,7 @@
 
                         <div class="col-span-2 flex justify-end">
                             <button type="submit"
-                                class="px-4 py-2 bg-amber-500 text-white rounded-md shadow-sm hover:bg-amber-600 focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                                class="px-4 py-2 bg-amber-600 text-white rounded-md shadow-sm hover:bg-amber-500 focus:ring-2 focus:ring-amber-500 focus:outline-none">
                                 Simpan
                             </button>
                         </div>
@@ -374,7 +374,7 @@
 
                             <div class="col-span-2 flex justify-end">
                                 <button type="submit"
-                                    class="px-4 py-2 bg-amber-500 text-white rounded-md shadow-sm hover:bg-amber-600 focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                                    class="px-4 py-2 bg-amber-600 text-white rounded-md shadow-sm hover:bg-amber-500 focus:ring-2 focus:ring-amber-500 focus:outline-none">
                                     Simpan
                                 </button>
                             </div>
@@ -564,7 +564,7 @@
 
                             <div class="col-span-2 flex justify-end">
                                 <button type="submit"
-                                    class="px-4 py-2 bg-amber-500 text-white rounded-md shadow-sm hover:bg-amber-600 focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                                    class="px-4 py-2 bg-amber-600 text-white rounded-md shadow-sm hover:bg-amber-500 focus:ring-2 focus:ring-amber-500 focus:outline-none">
                                     Simpan
                                 </button>
                             </div>
@@ -706,7 +706,7 @@
 
                         <div class="flex justify-end">
                             <button type="submit"
-                                class="px-4 py-2 bg-amber-500 text-white rounded-md shadow-sm hover:bg-amber-600 focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                                class="px-4 py-2 bg-amber-600 text-white rounded-md shadow-sm hover:bg-amber-500 focus:ring-2 focus:ring-amber-500 focus:outline-none">
                                 Simpan
                             </button>
                         </div>
@@ -846,7 +846,7 @@
 
                         <div class="flex justify-end">
                             <button type="submit"
-                                class="px-4 py-2 bg-amber-500 text-white rounded-md shadow-sm hover:bg-amber-600 focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                                class="px-4 py-2 bg-amber-600 text-white rounded-md shadow-sm hover:bg-amber-500 focus:ring-2 focus:ring-amber-500 focus:outline-none">
                                 Simpan
                             </button>
                         </div>
@@ -986,7 +986,7 @@
 
                         <div class="flex justify-end">
                             <button type="submit"
-                                class="px-4 py-2 bg-amber-500 text-white rounded-md shadow-sm hover:bg-amber-600 focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                                class="px-4 py-2 bg-amber-600 text-white rounded-md shadow-sm hover:bg-amber-500 focus:ring-2 focus:ring-amber-500 focus:outline-none">
                                 Simpan
                             </button>
                         </div>
@@ -1148,7 +1148,7 @@
 
                         <div class="flex justify-end">
                             <button type="submit"
-                                class="px-4 py-2 bg-amber-500 text-white rounded-md shadow-sm hover:bg-amber-600 focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                                class="px-4 py-2 bg-amber-600 text-white rounded-md shadow-sm hover:bg-amber-500 focus:ring-2 focus:ring-amber-500 focus:outline-none">
                                 Simpan
                             </button>
                         </div>

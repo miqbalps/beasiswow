@@ -51,6 +51,11 @@ class ApplicationController extends Controller
         $scholarships = Scholarship::where('status', 'active')
             ->where('start_date', '<=', now())
             ->where('end_date', '>=', now())
+            ->whereNotIn('id', function($query) {
+                $query->select('scholarship_id')
+                    ->from('applications')
+                    ->where('user_id', auth()->id());
+            })
             ->get();
 
         return view('applications.create', compact('scholarships'));
@@ -59,62 +64,6 @@ class ApplicationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    // public function store(Request $request)
-    // {
-    //     // Validate the basic required fields
-    //     $request->validate([
-    //         'scholarship_id' => 'required|exists:scholarships,id',
-    //     ]);
-
-    //     // Get the scholarship details to validate against requirements
-    //     $scholarship = Scholarship::with('applications')->findOrFail($request->scholarship_id);
-
-    //     // Initialize submission data array
-    //     $submissionData = [];
-
-    //     // Process each requirement field
-    //     foreach ($scholarship->requirements as $requirement) {
-    //         $fieldName = $requirement->label;
-
-    //         // Handle file uploads
-    //         if (in_array($requirement->input_type, ['file', 'image'])) {
-    //             if ($request->hasFile($fieldName)) {
-    //                 $file = $request->file($fieldName);
-
-    //                 // Generate a unique filename
-    //                 $filename = Str::uuid() . '.' . $file->getClientOriginalExtension();
-
-    //                 // Store the file in the appropriate directory
-    //                 $path = $file->storeAs(
-    //                     'scholarship-submissions/' . $request->scholarship_id,
-    //                     $filename,
-    //                     'public'
-    //                 );
-
-    //                 $submissionData[$fieldName] = [
-    //                     'path' => $path,
-    //                     'original_name' => $file->getClientOriginalName(),
-    //                     'mime_type' => $file->getMimeType(),
-    //                 ];
-    //             }
-    //         } else {
-    //             // Handle other input types
-    //             $submissionData[$fieldName] = $request->input($fieldName);
-    //         }
-    //     }
-
-    //     // Create the application
-    //     $application = Application::create([
-    //         'user_id' => auth()->id(),
-    //         'scholarship_id' => $request->scholarship_id,
-    //         'submission_date' => now(),
-    //         'submission_data' => $submissionData,
-    //         'status' => 'pending' // Default status for new applications
-    //     ]);
-
-    //     return redirect()->route('applications.index')
-    //         ->with('success', 'Pengajuan beasiswa berhasil dikirim!');
-    // }
     public function store(Request $request)
     {
         // Validate the basic required fields

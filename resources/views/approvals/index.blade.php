@@ -38,7 +38,7 @@
                             <option value="">Semua Status</option>
                             <option value="pending" {{ request('status')==='pending' ? 'selected' : '' }}>Menunggu
                             </option>
-                            <option value="approved" {{ request('status')==='approved' ? 'selected' : '' }}>Disetujui
+                            <option value="accepted" {{ request('status')==='accepted' ? 'selected' : '' }}>Disetujui
                             </option>
                             <option value="rejected" {{ request('status')==='rejected' ? 'selected' : '' }}>Ditolak
                             </option>
@@ -105,14 +105,14 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full
-                                            @if($application->status === 'approved')
+                                            @if($application->status === 'accepted')
                                                 bg-green-100 text-green-800
                                             @elseif($application->status === 'rejected')
                                                 bg-red-100 text-red-800
                                             @else
                                                 bg-yellow-100 text-yellow-800
                                             @endif">
-                                        @if($application->status === 'approved')
+                                        @if($application->status === 'accepted')
                                         Disetujui
                                         @elseif($application->status === 'rejected')
                                         Ditolak

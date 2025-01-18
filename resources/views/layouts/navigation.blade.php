@@ -6,7 +6,11 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
+                        {{--
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                        --}}
+                        <img src="{{URL::asset('img/Logo1.png')}}" alt="logo beasiswow"
+                            class="block h-9 w-auto fill-current" />
                     </a>
                 </div>
 
@@ -22,7 +26,7 @@
                     </x-nav-link>
 
                     <x-nav-link :href="route('lastedu.index')" :active="request()->routeIs('lastedu.index')">
-                        {{ __('Pendidikan Terakhir') }}
+                        {{ __('Pendidikan') }}
                     </x-nav-link>
 
                     <x-nav-link :href="route('achievements.index')"
@@ -32,7 +36,7 @@
 
                     <x-nav-link :href="route('applications.index')"
                         :active="request()->routeIs('applications.index') || request()->routeIs('applications.create')">
-                        {{ __('Daftar Beasiswa') }}
+                        {{ __('Beasiswa') }}
                     </x-nav-link>
                     @endif
 
@@ -50,7 +54,7 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button
-                            class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
+                            class="inline-flex items-center px-3 py-2 bg-gray-100 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
                             <div>{{ Auth::user()->name }}</div>
 
                             <div class="ms-1">

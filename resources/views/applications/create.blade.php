@@ -134,7 +134,7 @@
 
                         <div class="flex justify-end">
                             <button type="submit"
-                                class="px-4 py-2 bg-amber-500 text-white rounded-md shadow-sm hover:bg-amber-600 focus:ring-2 focus:ring-amber-500 focus:outline-none transition-colors">
+                                class="px-4 py-2 bg-amber-600 text-white rounded-md shadow-sm hover:bg-amber-500 focus:ring-2 focus:ring-amber-500 focus:outline-none transition-colors">
                                 Kirim Pengajuan
                             </button>
                         </div>

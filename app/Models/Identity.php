@@ -52,4 +52,9 @@ class Identity extends Model
     {
         return $this->hasOne(LastEdu::class, 'nik', 'nik');
     }
+
+    public function achievements()
+    {
+        return $this->hasMany(Achievement::class, 'nik', 'nik');
+    }
 }

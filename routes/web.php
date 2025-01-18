@@ -10,28 +10,26 @@ use App\Http\Controllers\LastEduController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ApprovalController;
 use App\Http\Controllers\IdentityController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\ListScholarshipController;
 
 Route::get('/', function () {
     return view('guest');
-});
-
-Route::get('/daftar-beasiswa', function () {
-    return view('list_scholarship');
 });
 
 Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/scholarships/{scholarship}', function (Scholarship $scholarship) {
     return response()->json($scholarship);
 });
+
+Route::resource('list-scholarships', ListScholarshipController::class)->only(['index', 'show']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

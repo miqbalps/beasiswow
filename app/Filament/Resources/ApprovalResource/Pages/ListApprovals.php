@@ -56,7 +56,10 @@ class ListApprovals extends ListRecords
                     ])
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
+                Tables\Actions\Action::make('view')
+                    ->label('View')
+                    ->url(fn ($record) => route('approvals.show', $record))
+                    ->icon('heroicon-s-eye'),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),

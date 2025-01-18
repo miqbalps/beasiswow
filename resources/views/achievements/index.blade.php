@@ -5,7 +5,7 @@
                 {{ __('Prestasi') }}
             </h2>
 
-            <a class="px-4 py-2 text-white bg-amber-600 rounded-md hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-400"
+            <a class="px-4 py-2 text-white bg-amber-500 rounded-md hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-400"
                 href="{{ route('achievements.create') }}">
                 Tambah Prestasi
             </a>
@@ -13,14 +13,13 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-3">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-4">
             <!-- Search and Filter Section -->
-            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 mb-4">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
                 <form id="searchForm" method="GET" action="{{ route('achievements.index') }}"
                     class="flex flex-col md:flex-row gap-4">
                     <!-- Search Input -->
                     <div class="flex-1">
-                        <label for="search" class="sr-only">Search</label>
                         <div class="relative">
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                 <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +30,7 @@
                                 </svg>
                             </div>
                             <input type="text" name="search" id="search" value="{{ request('search') }}"
-                                class="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-700 rounded-md leading-5 bg-white dark:bg-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-amber-500 focus:border-amber-500 sm:text-sm"
+                                class="block w-full pl-10 pr-3 py-2.5 border-0 ring-1 ring-inset ring-gray-300 dark:ring-gray-700 rounded-lg leading-5 bg-white dark:bg-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-amber-500 sm:text-sm"
                                 placeholder="Cari prestasi...">
                         </div>
                     </div>
@@ -39,7 +38,7 @@
                     <!-- Level Filter -->
                     <div class="w-full md:w-48">
                         <select name="level" id="level" onchange="document.getElementById('searchForm').submit()"
-                            class="block w-full pl-3 pr-10 py-2 text-base border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm rounded-md bg-white dark:bg-gray-900">
+                            class="block w-full px-3 py-2.5 border-0 ring-1 ring-inset ring-gray-300 dark:ring-gray-700 rounded-lg bg-white dark:bg-gray-900 focus:ring-2 focus:ring-amber-500 sm:text-sm">
                             <option value="">Semua Tingkatan</option>
                             <option value="internasional" {{ request('level')==='internasional' ? 'selected' : '' }}>
                                 Internasional</option>
@@ -53,87 +52,64 @@
                 </form>
             </div>
 
-            <!-- Bagian Tabel -->
+            <!-- Table Section -->
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm overflow-hidden">
                 <div class="overflow-x-auto">
                     <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                         <thead class="bg-gray-50 dark:bg-gray-900">
                             <tr>
                                 <th
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                    No
-                                </th>
+                                    class="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                    No</th>
                                 <th
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                    Nama
-                                </th>
+                                    class="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                    Nama</th>
                                 <th
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                    Jenis
-                                </th>
+                                    class="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                    Jenis</th>
                                 <th
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                    Tingkat
-                                </th>
+                                    class="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                    Tingkat</th>
                                 <th
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                    Peringkat
-                                </th>
+                                    class="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                    Peringkat</th>
                                 <th
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                    Tahun
-                                </th>
+                                    class="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                    Tahun</th>
                                 <th
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                    Aksi
-                                </th>
+                                    class="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                    Aksi</th>
                             </tr>
                         </thead>
-                        <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
                             @forelse($achievements as $index => $achievement)
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900 dark:text-gray-100">
-                                        {{ $achievements->firstItem() + $index }}
-                                    </div>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">{{
+                                    $achievements->firstItem() + $index }}</td>
+                                <td
+                                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">
+                                    {{ $achievement->name }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">{{
+                                    $achievement->type == 'individual' ? 'Perorangan' : 'Kelompok' }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
+                                    @php
+                                    $tingkatan = [
+                                    'internasional' => 'Internasional',
+                                    'nasional' => 'Nasional',
+                                    'regional' => 'Provinsi',
+                                    'local' => 'Kabupaten/Kota'
+                                    ];
+                                    @endphp
+                                    {{ $tingkatan[$achievement->level] ?? ucfirst($achievement->level) }}
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm font-medium text-gray-900 dark:text-gray-100">
-                                        {{ $achievement->name }}
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900 dark:text-gray-100">
-                                        {{ $achievement->type == 'individual' ? 'Perorangan' : 'Kelompok' }}
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900 dark:text-gray-100">
-                                        @php
-                                        $tingkatan = [
-                                        'internasional' => 'Internasional',
-                                        'nasional' => 'Nasional',
-                                        'regional' => 'Provinsi',
-                                        'local' => 'Kabupaten/Kota'
-                                        ];
-                                        @endphp
-                                        {{ $tingkatan[$achievement->level] ?? ucfirst($achievement->level) }}
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900 dark:text-gray-100">
-                                        {{ $achievement->rank }}
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900 dark:text-gray-100">
-                                        {{ $achievement->year }}
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
-                                    <div class="flex space-x-3">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">{{
+                                    $achievement->rank }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">{{
+                                    $achievement->year }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                    <div class="flex space-x-4">
                                         <a href="{{ route('achievements.show', $achievement->id) }}"
-                                            class="text-amber-600 hover:text-amber-900 dark:hover:text-amber-400">
+                                            class="text-amber-600 hover:text-amber-900 dark:hover:text-amber-400 font-medium">
                                             Lihat
                                         </a>
                                         <form action="{{ route('achievements.destroy', $achievement->id) }}"
@@ -142,7 +118,7 @@
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit"
-                                                class="text-red-600 hover:text-red-900 dark:hover:text-red-400">
+                                                class="text-red-600 hover:text-red-900 dark:hover:text-red-400 font-medium">
                                                 Hapus
                                             </button>
                                         </form>
@@ -151,7 +127,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="7" class="px-6 py-4 text-center text-gray-500 dark:text-gray-400">
+                                <td colspan="7" class="px-6 py-8 text-center text-gray-500 dark:text-gray-400">
                                     Tidak ada data prestasi yang ditemukan.
                                 </td>
                             </tr>
@@ -161,7 +137,7 @@
                 </div>
 
                 <!-- Pagination -->
-                <div class="bg-white dark:bg-gray-800 px-4 py-3 border-t border-gray-200 dark:border-gray-700 sm:px-6">
+                <div class="px-6 py-4 border-t border-gray-200 dark:border-gray-700">
                     {{ $achievements->links() }}
                 </div>
             </div>

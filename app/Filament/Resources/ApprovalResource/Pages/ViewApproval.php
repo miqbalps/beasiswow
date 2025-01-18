@@ -38,7 +38,7 @@ class ViewApproval extends ViewRecord
                     $record->update(['status' => 'accepted']);
 
                     Notification::make()
-                        ->title('Application Approved')
+                        ->title('Application accepted')
                         ->success()
                         ->send();
                 })

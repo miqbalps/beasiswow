@@ -61,6 +61,8 @@ class ApprovalController extends Controller
      */
     public function show(Application $approval)
     {
+        $approval->load(['user', 'scholarship']);
+
         return view('approvals.show', compact('approval'));
     }
 

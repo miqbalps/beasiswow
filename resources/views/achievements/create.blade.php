@@ -121,6 +121,8 @@
 
                         <!-- Proof File -->
                         <div class="mb-4">
+                            <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Bukti
+                                Pencapaian</label>
                             @if($achieve->proof_file)
                             <div class="flex justify-between items-center mb-2">
                                 <a href="{{ Storage::url($achieve->proof_file) }}" target="_blank"
@@ -158,7 +160,7 @@
 
                         <div class="flex justify-end">
                             <button type="submit"
-                                class="px-4 py-2 bg-amber-500 text-white rounded-md shadow-sm hover:bg-amber-600 focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                                class="px-4 py-2 bg-amber-600 text-white rounded-md shadow-sm hover:bg-amber-500 focus:ring-2 focus:ring-amber-500 focus:outline-none">
                                 Simpan
                             </button>
                         </div>

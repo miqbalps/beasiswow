@@ -81,7 +81,8 @@
 
                         <!-- Achievement File Preview -->
                         <div class="mb-4">
-                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">File Bukti Prestasi</label>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">File Bukti
+                                Prestasi</label>
                             @if($achievement->proof_file)
                             <div class="flex justify-between items-center mb-2">
                                 <a href="{{ Storage::url($achievement->proof_file) }}" target="_blank"
@@ -94,7 +95,7 @@
 
                         <div class="flex justify-end space-x-2">
                             <a href="{{ route('achievements.index') }}"
-                                class="px-4 py-2 bg-amber-600 text-white transition-colors rounded-md shadow-sm hover:bg-amber-500">
+                                class="px-4 py-2 bg-amber-500 text-white transition-colors rounded-md shadow-sm hover:bg-amber-600">
                                 Kembali
                             </a>
                         </div>

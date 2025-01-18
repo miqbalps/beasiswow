@@ -15,12 +15,12 @@
                     <!-- Status Card -->
                     <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
                         <div class="flex items-center space-x-3">
-                            <div class="@if($application->status === 'approved') bg-green-100 text-green-600
+                            <div class="@if($application->status === 'accepted') bg-green-100 text-green-600
                      @elseif($application->status === 'rejected') bg-red-100 text-red-600
                      @else bg-yellow-100 text-yellow-600 @endif
                      p-3 rounded-full">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    @if($application->status === 'approved')
+                                    @if($application->status === 'accepted')
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M5 13l4 4L19 7" />
                                     @elseif($application->status === 'rejected')
@@ -79,7 +79,7 @@
                     <!-- Scholarship Type -->
                     <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
                         <div class="flex items-center space-x-3">
-                            <div class="bg-indigo-100 text-indigo-600 p-3 rounded-full">
+                            <div class="bg-amber-100 text-amber-600 p-3 rounded-full">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
